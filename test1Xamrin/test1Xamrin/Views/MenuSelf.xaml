@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test1Xamrin.MenuSelf"
+             xmlns:sys2="clr-namespace:xUtilityPCL"
+             xmlns:i18n="clr-namespace:test1Xamrin"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <ScrollView>
+            <ScrollView.Resources>
+                <ResourceDictionary>
+                    <!--<OnIdiom x:Key="myPadding" x:TypeArguments="Thickness" Phone="5,5,5,5" Tablet="8,8,8,8" />-->
+                    <OnIdiom x:Key="myBigCustomButtonPadding" x:TypeArguments="Thickness" Phone="0,60,0,0" Tablet="0,96,0,0" />
+                    <OnIdiom x:Key="mySmallCustomButtonPadding" x:TypeArguments="Thickness" Phone="0,40,0,0" Tablet="0,64,0,0" />
+                    <OnIdiom x:Key="myBoxView1Margin" x:TypeArguments="Thickness" Phone="40,10,40,0" Tablet="64,10,64,0" />
+                    <OnIdiom x:Key="myBoxView2Margin" x:TypeArguments="Thickness" Phone="40,20,40,0" Tablet="64,32,64,0" />
+                    <Style x:Key="HeaderLabel" TargetType="Label">
+                        <Setter Property="TextColor" Value="{StaticResource MainAppColor}" />
+                        <Setter Property="FontFamily" Value="{StaticResource SmallFontFamily}" />
+                        <Setter Property="FontSize" Value="{StaticResource HeaderFontSize}" />
+                        <Setter Property="HorizontalTextAlignment" Value="Center" />
+                    </Style>
+                    <Style x:Key="SubHeaderLabel" TargetType="Label">
+                        <Setter Property="TextColor" Value="{StaticResource SecondMainAppColor}" />
+                        <Setter Property="FontFamily" Value="{StaticResource SmallFontFamily}" />
+                        <Setter Property="FontSize" Value="{StaticResource SubHeaderFontSize}" />
+                        <Setter Property="HorizontalTextAlignment" Value="Center" />
+                    </Style>
+                </ResourceDictionary>
+            </ScrollView.Resources>
+
+            <Grid x:Name="gridTest" RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--<Image Margin="0,10,0,0" Grid.Row="0" x:Name="imgLogo" Source="{Binding imgLogoSource}" 
+                HorizontalOptions="FillAndExpand" Aspect="AspectFit" HeightRequest="80" />-->
+                <Image Margin="0,10,0,0" Grid.Row="0" x:Name="imgLogo" Source="{Binding imgLogoSource}" 
+                       HorizontalOptions="FillAndExpand" VerticalOptions="Center" Aspect="AspectFit"
+                       HeightRequest="{StaticResource LogoImageHeight}" />
+
+                <StackLayout Grid.Row="1" Margin="0,0,0,0" Spacing="0" x:Name="stackPage" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical" Spacing="0">
+                        <StackLayout.Padding>
+                            <OnIdiom x:TypeArguments="Thickness">
+                                <OnIdiom.Phone>5, 5, 5, 5</OnIdiom.Phone>
+                                <OnIdiom.Tablet>8, 8, 8, 8</OnIdiom.Tablet>
+                            </OnIdiom>
+                        </StackLayout.Padding>
+                        <!--<Label Text="{i18n:Translate TitoloRiga1}" HorizontalTextAlignment="Center" Style="{StaticResource HeaderLabel}" />
+                        <Label Text="{i18n:Translate TitoloRiga2}" HorizontalTextAlignment="Center" Style="{StaticResource SubHeaderLabel}" />-->
+                        <!--<Label Text="ELETTRONICAxxx" BackgroundColor="Yellow" 
+                        HorizontalTextAlignment="Center" Style="{StaticResource SubHeaderLabel}" />-->
+                    </StackLayout>
+                    <!--<StackLayout BackgroundColor="Olive" Padding="{StaticResource myPadding}">
+                        <Label Text="{Binding Cognome}" BackgroundColor="Yellow" />
+                    </StackLayout>-->
+
+                    <BoxView HeightRequest="1" BackgroundColor="Silver" Margin="{StaticResource myBoxView1Margin}" 
+                             Opacity="0.5" VerticalOptions="End" />
+
+                    <StackLayout Orientation="Vertical" Spacing="0">
+                        <StackLayout Padding="{StaticResource myBigCustomButtonPadding}">
+                            <sys2:bottoneSabicom x:Name="btnDatiFattura" 
+                                LabelButton="{i18n:Translate FormMenuBottone1}" ImageNameButton="CustomerIcon.png" 
+                                ButtonWidth="{StaticResource BigCustomButtonWidth}" 
+                                ButtonHeight="{StaticResource BigCustomButtonHeight}"
+                                CircleHeight="{StaticResource BigCustomButtonCircleSize}" 
+                                CircleWidth="{StaticResource BigCustomButtonCircleSize}"  
+                                ButtonFontSize="{StaticResource BigButtonFontSize}" 
+                                BorderColorButton="{StaticResource MainAppColor}" 
+                                TextColorButton="{StaticResource MainAppColor}"
+                                CircleBorderColor="{StaticResource MainAppColor}" 
+                                lblBtnTapCommand="{Binding cmdbtnRegistrazione}" />
+                        </StackLayout>
+                        <StackLayout x:Name="slPrezzi" Padding="{StaticResource myBigCustomButtonPadding}">
+                            <sys2:bottoneSabicom x:Name="btnFattureEmesse" 
+                                LabelButton="{i18n:Translate FormMenuBottone2}" ImageNameButton="NewDocumentIcon.png" 
+                                ButtonWidth="{StaticResource BigCustomButtonWidth}" 
+                                ButtonHeight="{StaticResource BigCustomButtonHeight}" 
+                                CircleHeight="{StaticResource BigCustomButtonCircleSize}" 
+                                CircleWidth="{StaticResource BigCustomButtonCircleSize}" 
+                                ButtonFontSize="{StaticResource BigButtonFontSize}" 
+                                BorderColorButton="{StaticResource MainAppColor}" 
+                                TextColorButton="{StaticResource MainAppColor}"
+                                CircleBorderColor="{StaticResource MainAppColor}"
+                                lblBtnTapCommand="{Binding cmdbtnRichiestaFattura}" />
+                        </StackLayout>
+                        <StackLayout x:Name="slClienti" Padding="{StaticResource myBigCustomButtonPadding}">
+                            <sys2:bottoneSabicom x:Name="btnFattureEmesse2" 
+                                LabelButton="{i18n:Translate FormMenuBottone2Vers2}" ImageNameButton="ListIcon.png" 
+                                ButtonWidth="{StaticResource BigCustomButtonWidth}" 
+                                ButtonHeight="{StaticResource BigCustomButtonHeight}" 
+                                CircleHeight="{StaticResource BigCustomButtonCircleSize}" 
+                                CircleWidth="{StaticResource BigCustomButtonCircleSize}" 
+                                ButtonFontSize="{StaticResource BigButtonFontSize}" 
+                                BorderColorButton="{StaticResource MainAppColor}" 
+                                TextColorButton="{StaticResource MainAppColor}"
+                                CircleBorderColor="{StaticResource MainAppColor}"
+                                lblBtnTapCommand="{Binding cmdbtnElencoRichieste}" />
+                        </StackLayout>
+                        <StackLayout IsVisible="{StaticResource K_BOTVisibile}" x:Name="slChatBot" Padding="{StaticResource myBigCustomButtonPadding}">
+                            <sys2:bottoneSabicom x:Name="btnChatBot"
+                                LabelButton="CHATBOT" ImageNameButton="ChatIcon.png" 
+                                ButtonWidth="{StaticResource BigCustomButtonWidth}" 
+                                ButtonHeight="{StaticResource BigCustomButtonHeight}" 
+                                CircleHeight="{StaticResource BigCustomButtonCircleSize}" 
+                                CircleWidth="{StaticResource BigCustomButtonCircleSize}" 
+                                ButtonFontSize="{StaticResource BigButtonFontSize}" 
+                                BorderColorButton="{StaticResource MainAppColor}" 
+                                TextColorButton="{StaticResource MainAppColor}"
+                                CircleBorderColor="{StaticResource MainAppColor}"
+                                lblBtnTapCommand="{Binding cmdbtnChatBot}" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <BoxView HeightRequest="1" BackgroundColor="Silver" Margin="{StaticResource myBoxView2Margin}" 
+                             Opacity="0.5" VerticalOptions="End" IsVisible="false" />
+
+                    <StackLayout Padding="{StaticResource mySmallCustomButtonPadding}">
+                        <sys2:bottoneSabicom x:Name="btnChiudi" IsVisible="false"
+                            LabelButton="{i18n:Translate FormMenuBottone3}" ImageNameButton="CloseIcon.png" 
+                            ButtonWidth="{StaticResource SmallCustomButtonWidth}" 
+                            ButtonHeight="{StaticResource SmallCustomButtonHeight}" 
+                            CircleHeight="{StaticResource SmallCustomButtonCircleSize}" 
+                            CircleWidth="{StaticResource SmallCustomButtonCircleSize}"
+                            ButtonFontSize="{StaticResource SmallButtonFontSize}" 
+                            BorderColorButton="{StaticResource SecondMainAppColor}" 
+                            TextColorButton="{StaticResource SecondMainAppColor}"
+                            CircleBorderColor="{StaticResource SecondMainAppColor}" 
+                            lblBtnTapCommand="{Binding cmdbtnChiudi}"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <!--<Button x:Name="btnEntra" Grid.Row="2" Text="Entra" Margin="20, 20, 20, 40" 
+                VerticalOptions="End" Style="{DynamicResource MainButtonStyle}" Command="{Binding cmdbtnEntra}" />-->
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test1Xamrin.NuovoDocumento"
+             xmlns:local="clr-namespace:test1Xamrin"
+             xmlns:sys2="clr-namespace:xUtilityPCL"
+             xmlns:i18n="clr-namespace:test1Xamrin"
+             xmlns:numeric="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms" 
+             xmlns:sfpicker="clr-namespace:Syncfusion.SfPicker.XForms;assembly=Syncfusion.SfPicker.XForms"
+             BackgroundColor="White"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="SegmentOrizontalPosition" x:TypeArguments="LayoutOptions" iOS="CenterAndExpand" Android="FillAndExpand" />
+            <OnIdiom x:Key="FormGridLabelColumnWidthRidotta" x:TypeArguments="GridLength" Phone="100" Tablet="160" />
+            <sys2:EmptyStringConverter x:Key="myEmptyStringConverter" />
+            <sys2:NumericConverter x:Key="myNumericConverter" />
+            <sys2:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+            <!--<local:SyncFusionAutoCompleteConverter x:Key="SyncFusionAutoCompleteConverter" />-->
+            <!--<local:SalesDocTypeSegmentConverter x:Key="mySalesDocTypeSegmentConverter" />-->
+            <local:lblDataScontrinoConverter x:Key="mylblDataScontrinoConverter" />
+            <local:lblClienteConverter x:Key="mylblClienteConverter" />
+            <local:DDLModPagamentoConverter x:Key="myDDLModPagamentoConverter" />
+            <local:lblModalitaPagamentoConverter x:Key="mylblModalitaPagamentoConverter" />
+            <local:lblProdottoConverter x:Key="mylblProdottoConverter" />
+            <local:FakeConverterSettaEnabled x:Key="myFakeConverterSettaEnabled" />
+            <!--<local:FakeConverterSettaAltriProdotti x:Key="myFakeConverterSettaAltriProdotti" />-->
+            <!--<local:FakeConverterSettaTotaleFattura x:Key="myFakeConverterSettaTotaleFattura" />-->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout Padding="10,10,10,10" x:Name="slPrincipale" 
+                    IsEnabled="{Binding slPrincipaleEnabled, Converter={StaticResource myFakeConverterSettaEnabled},ConverterParameter={x:Reference slPrincipale}}"
+                    >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource FormGridLabelColumnWidthRidotta}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="AUTO" />
+                        </Grid.RowDefinitions>
+
+                        <!--riga 1-->
+                        <Label Grid.Column="0" Grid.Row="0" x:Name="lblCliente"
+                               VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                               FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap"
+                               Text="{i18n:Translate FormNuovoDocLblCliente}" />
+                        <StackLayout Grid.Column="1" Grid.Row="0" BackgroundColor="White" Padding="0,0,0,1">
+                            <StackLayout x:Name="slClienteConTap">
+                                <sys2:CustomEntry x:Name="txtCliente" 
+                                                  IsEnabled="false" FontSize="{StaticResource StandardLabelFontSize}" 
+                                                  HorizontalOptions="FillAndExpand" VerticalOptions="Center" IsLineEntry="true"
+                                                  Text="{Binding drTestata.TaxIDNumber, Converter={StaticResource mylblClienteConverter}}"
+                                                  WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                                  LineEntryColor="{StaticResource NavigationBarBackgroundColor}">
+                                </sys2:CustomEntry>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="txtCliente_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout x:Name="slClienteSenzaTap">
+                                <sys2:CustomEntry x:Name="txtCliente2" 
+                                                  IsEnabled="false" FontSize="{StaticResource StandardLabelFontSize}" 
+                                                  HorizontalOptions="FillAndExpand" VerticalOptions="Center" IsLineEntry="true"
+                                                  Text="{Binding drTestata.CompanyName}"
+                                                  WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                                  LineEntryColor="{StaticResource NavigationBarBackgroundColor}">
+                                </sys2:CustomEntry>
+                            </StackLayout>
+                        </StackLayout>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource FormGridLabelColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                        </Grid.RowDefinitions>
+
+                        <!--riga 1-->
+                        <!--<StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                                     x:Name="slSceltaBenzinaio" HorizontalOptions="FillAndExpand" Orientation="Horizontal" 
+                                     IsEnabled="{Binding slPrincipaleEnabled, Converter={StaticResource myFakeConverterSettaEnabled}, ConverterParameter={x:Reference slSceltaBenzinaio}}" 
+                                     >
+                            <Label x:Name="lblSceltaBenzinaio" VerticalOptions="Center" Margin="0,0,10,0"
+                                   FontSize="{StaticResource StandardLabelFontSize}" HorizontalOptions="FillAndExpand"
+                                   Text="{i18n:Translate FormNuovoDocLabelSceltaBenzinaio}" />
+                        
+                            <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" IsEnabled="false"
+                                              x:Name="txtSceltaBenzinaio" LineEntryColor="{StaticResource MainAppColor}" 
+                                              HorizontalOptions="FillAndExpand" IsLineEntry="true" 
+                                              WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                              Text="{Binding drTestata.IDCompanyCompanyName, Mode=TwoWay}" />
+                        
+                            <StackLayout VerticalOptions="Center">
+                                <Image x:Name="imgMoreSceltaBenzinaio" Source="MoreIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SceltaBenzinaio_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        
+                            <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                <Image x:Name="imgQRSceltaBenzinaio" Source="QRIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="QRSceltaBenzinaio_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>-->
+
+                        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" x:Name="gridSceltaBenzinaio" HorizontalOptions="FillAndExpand"  
+                              IsEnabled="{Binding slPrincipaleEnabled, Converter={StaticResource myFakeConverterSettaEnabled}, ConverterParameter={x:Reference gridSceltaBenzinaio}}" 
+                              >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="AUTO" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="AUTO" />
+                                <ColumnDefinition Width="AUTO" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="AUTO" />
+                            </Grid.RowDefinitions>
+
+                            <Label x:Name="lblSceltaBenzinaio" VerticalOptions="Center" Margin="0,0,10,0" Grid.Column="0" 
+                                   FontSize="{StaticResource StandardLabelFontSize}" HorizontalOptions="FillAndExpand" 
+                                   Text="{i18n:Translate FormNuovoDocLabelSceltaBenzinaio}" />
+
+                            <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" IsEnabled="false" Grid.Column="1"
+                                              x:Name="txtSceltaBenzinaio" LineEntryColor="{StaticResource MainAppColor}" 
+                                              HorizontalOptions="FillAndExpand" IsLineEntry="true" 
+                                              WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                              Text="{Binding drTestata.IDCompanyCompanyName, Mode=TwoWay}" />
+
+                            <StackLayout VerticalOptions="Center" Grid.Column="2">
+                                <Image x:Name="imgMoreSceltaBenzinaio" Source="MoreIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SceltaBenzinaio_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            <StackLayout HorizontalOptions="End" VerticalOptions="Center" Grid.Column="3">
+                                <Image x:Name="imgQRSceltaBenzinaio" Source="QRIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="QRSceltaBenzinaio_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Grid>
+
+                        <!--riga 2-->
+                        <StackLayout Margin="0,5,0,0" x:Name="slIndirizzoCitta" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 
+                                     Padding="0,0,0,1" BackgroundColor="{StaticResource NavigationBarBackgroundColor}">
+                            <StackLayout Padding="0,0,0,5" BackgroundColor="White" >
+                                <Label Text="{Binding drTestata.IDCompanyIndirizzoCittaUnbound}" HorizontalOptions="FillAndExpand" 
+                                       BackgroundColor="White" FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" />
+                            </StackLayout>
+                        </StackLayout>
+
+                        <!--riga 3-->
+                        <StackLayout Grid.Column="1" Grid.Row="2" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="AUTO" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="AUTO" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="AUTO" />
+                                </Grid.RowDefinitions>
+                                <Label x:Name="lblPlate" Grid.Column="0"
+                                    VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                                    FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                                    Text="{i18n:Translate FormNuovoDocLblTarga}" />
+                                <!--<StackLayout Grid.Column="1" x:Name="slTarga" HorizontalOptions="FillAndExpand" Orientation="Horizontal" >
+                                    <sys2:CustomEntry x:Name="txtPlate" Margin="5,0,0,0"
+                                                      FontSize="{StaticResource StandardLabelFontSize}" HorizontalOptions="FillAndExpand" 
+                                                      VerticalOptions="Center" IsLineEntry="true" 
+                                                      Text="{Binding drTestata.Plate, Converter={StaticResource myEmptyStringConverter}}" 
+                                                      Placeholder="{i18n:Translate FormNuovoDocPlaceholderTarga}" 
+                                                      PlaceholderTextColor="Silver"
+                                                      WidthRequest="{StaticResource GeneralEntryWidth}"
+                                                      LineEntryColor="{StaticResource NavigationBarBackgroundColor}"
+                                                      TextChanged="PlateHandle_TextChanged" >
+                                    </sys2:CustomEntry>
+                                    <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                        <Image x:Name="imgRecuperaUltimaTarga" Source="CarPlateIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="RecuperaUltimaTarga_Tapped" />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </StackLayout>-->
+                                <sys2:CustomEntry x:Name="txtPlate" Margin="5,0,0,0" Grid.Column="1"
+                                                  FontSize="{StaticResource StandardLabelFontSize}" HorizontalOptions="FillAndExpand" 
+                                                  VerticalOptions="Center" IsLineEntry="true" 
+                                                  Text="{Binding drTestata.Plate, Converter={StaticResource myEmptyStringConverter}}" 
+                                                  Placeholder="{i18n:Translate FormNuovoDocPlaceholderTarga}" 
+                                                  PlaceholderTextColor="Silver"
+                                                  WidthRequest="{StaticResource GeneralEntryWidth}"
+                                                  LineEntryColor="{StaticResource NavigationBarBackgroundColor}"
+                                                  TextChanged="PlateHandle_TextChanged" >
+                                </sys2:CustomEntry>
+                                <StackLayout HorizontalOptions="End" VerticalOptions="Center" Grid.Column="2">
+                                    <Image x:Name="imgRecuperaUltimaTarga" Source="CarPlateIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="RecuperaUltimaTarga_Tapped" />
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+
+                        <!--riga 3-->
+                        <StackLayout Grid.Column="0" Grid.Row="2" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="AUTO" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="AUTO" />
+                                </Grid.RowDefinitions>
+                                <Label x:Name="lblKM" Grid.Column="0"
+                                    VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                                    FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                                    Text="{i18n:Translate FormNuovoDocLblKM}" />
+                                <sys2:CustomEntry x:Name="txtKM" Grid.Column="1" Margin="5,0,0,0"
+                                    FontSize="{StaticResource StandardLabelFontSize}" HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="Center" IsLineEntry="true" 
+                                    Text="{Binding drTestata.KM, Converter={StaticResource myNumericConverter}}" 
+                                    Placeholder="{i18n:Translate FormNuovoDocPlaceholderKM}" 
+                                    PlaceholderTextColor="Silver"
+                                    WidthRequest="{StaticResource GeneralEntryWidth}"
+                                    LineEntryColor="{StaticResource NavigationBarBackgroundColor}" >
+                                </sys2:CustomEntry>
+                            </Grid>
+                        </StackLayout>
+
+                        <!--riga 4-->
+                        <Label Grid.Column="0" Grid.Row="3" x:Name="lblReceiptDate" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                            Text="{i18n:Translate FormNuovoDocLblReceiptDate}" />
+                        <StackLayout Grid.Column="1" Grid.Row="3">
+                            <sys2:CustomEntry Margin="5,0,0,0" x:Name="txtReceiptDate" IsEnabled="false" 
+                                              WidthRequest="{StaticResource GeneralEntryWidth}" HorizontalOptions="Fill"
+                                              FontSize="{StaticResource StandardLabelFontSize}" 
+                                              VerticalOptions="Center" IsLineEntry="true" 
+                                              Placeholder="{i18n:Translate FormNuovoDocPlaceholderDate}" 
+                                              LineEntryColor="{StaticResource NavigationBarBackgroundColor}"
+                                              Text="{Binding drTestata.Receiptdate, Converter={StaticResource mylblDataScontrinoConverter}}">
+                            </sys2:CustomEntry>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="txtReceiptDate_Tapped" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <!--riga 5-->
+                        <StackLayout Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"
+                                     x:Name="slScontrino" HorizontalOptions="FillAndExpand" Orientation="Horizontal" >
+                            <Label x:Name="lblReceiptNumber" 
+                                   VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                                   FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                                   Text="{i18n:Translate FormNuovoDocLblNumScontrino}" />
+                            <sys2:CustomEntry x:Name="txtReceiptNumber" Margin="5,0,0,0" TextChanged="txtReceiptNumber_TextChanged"
+                                              FontSize="{StaticResource StandardLabelFontSize}" HorizontalOptions="FillAndExpand" 
+                                              VerticalOptions="Center" IsLineEntry="true" 
+                                              Text="{Binding drTestata.ReceiptNumber, Converter={StaticResource myEmptyStringConverter}}"
+                                              WidthRequest="{StaticResource GeneralEntryWidth}"
+                                              LineEntryColor="{StaticResource NavigationBarBackgroundColor}" />
+                            <StackLayout VerticalOptions="Center">
+                                <Image x:Name="imgFotoScontrino" Source="CameraIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="FotoScontrino_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                <Image x:Name="imgVediFotoScontrino" Source="ViewPhotoIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="VediFotoScontrino_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <!--riga 6-->
+                        <Label Grid.Column="0" Grid.Row="5" x:Name="lblPaymentTerms" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                            Text="{i18n:Translate FormNuovoDocLblModPagamento}" />
+                        <StackLayout Grid.Column="1" Grid.Row="5" BackgroundColor="White" Padding="0,0,0,1">
+                            <sys2:CustomEntry x:Name="txtModalitaPagamento" 
+                                IsEnabled="false" FontSize="{StaticResource StandardLabelFontSize}" 
+                                HorizontalOptions="FillAndExpand" VerticalOptions="Center" IsLineEntry="true" 
+                                Text="{Binding drTestata.PaymentTermsID,  Converter={StaticResource mylblModalitaPagamentoConverter}}" 
+                                WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                LineEntryColor="{StaticResource NavigationBarBackgroundColor}">
+                            </sys2:CustomEntry>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="txtModalitaPagamento_Tapped" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <!--riga 7-->
+                        <StackLayout Margin="5,5,5,5" Grid.ColumnSpan="2" Grid.Row="6"
+                            BackgroundColor="{StaticResource NavigationBarBackgroundColor}">
+                            <Label Text="{i18n:Translate FormNuovoDocSeparatoreLblCarburante}"
+                                HorizontalOptions="Center"
+                                TextColor="White" FontSize="{StaticResource StandardLabelFontSize}" />
+                        </StackLayout>
+
+                        <!--riga 8-->
+                        <Label Grid.Column="0" Grid.Row="7" x:Name="lblTotalAmount" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                            Text="{i18n:Translate FormNuovoDocLblTotPagato}" />
+                        <StackLayout Grid.Column="1" Grid.Row="7" Orientation="Horizontal" Spacing="3">
+                            <Label x:Name="lblCurrencyTotalAmount" VerticalOptions="Center"
+                                FontSize="{StaticResource StandardLabelFontSize}"/>
+                            <numeric:SfNumericUpDown x:Name="numUDTotalAmount" SpinValidation="Tapped"
+                                BorderColor="{StaticResource NavigationBarBackgroundColor}" 
+                                SpinButtonAlignment="Both" MaximumDecimalDigits="2" ParsingMode="Decimal" 
+                                StepValue="1" FormatString="n"  HorizontalOptions="FillAndExpand"
+                                ValueChanged="numUDTotalAmountEventHandler" Minimum="0"
+                                Value="{Binding drTestata.TotalAmount, Converter={StaticResource myNumericConverter}}" />
+                        </StackLayout>
+
+                        <!--riga 9-->
+                        <StackLayout Grid.Column="0" Grid.Row="8" Orientation="Horizontal" Spacing="3">
+                            <Label x:Name="lblProdotto" VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                                FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                                Text="{i18n:Translate FormNuovoDocLblCodiceProdotto}" Margin="0,0,0,0" />
+                            <Label x:Name="lblUnitaMisura" VerticalOptions="Center" 
+                                Text="{Binding drTestata.UnitaMisura_Unbound}"
+                                FontSize="{StaticResource StandardLabelFontSize}"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" Grid.Row="8" BackgroundColor="White" Padding="0,0,0,1">
+                            <sys2:CustomEntry x:Name="txtProdotto"  
+                                FontSize="{StaticResource StandardLabelFontSize}"
+                                HorizontalOptions="FillAndExpand" VerticalOptions="Center" IsLineEntry="true" 
+                                Text="{Binding drTestata.ItemCode, Converter={StaticResource mylblProdottoConverter}}" 
+                                WidthRequest="{StaticResource GeneralEntryWidth}" IsEnabled="false"
+                                LineEntryColor="{StaticResource NavigationBarBackgroundColor}" >
+                            </sys2:CustomEntry>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="txtProdotto_Tapped" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <!--riga 10-->
+                        <Label Grid.Column="0" Grid.Row="9" x:Name="lblQty" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                            Text="{i18n:Translate FormNuovoDocLblQuantita}" />
+                        <sys2:CustomEntry Grid.Column="1" Grid.Row="9" x:Name="lblQtyValue" 
+                            FontSize="{StaticResource StandardLabelFontSize}" HorizontalOptions="FillAndExpand" 
+                            IsEnabled="false" VerticalOptions="Center" IsLineEntry="true" 
+                            Text="{Binding drTestata.Qty, StringFormat = '{0:N2}'}"
+                            WidthRequest="{StaticResource GeneralEntryWidth}" 
+                            LineEntryColor="{StaticResource NavigationBarBackgroundColor}">
+                        </sys2:CustomEntry>
+
+                        <!--riga 11-->
+                        <Label Grid.Column="0" Grid.Row="10" x:Name="lblUnitPriceVAT" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                            Text="{i18n:Translate FormNuovoDocLblPrezzoUnitario}" />
+                        <sys2:CustomEntry Grid.Column="1" Grid.Row="10" x:Name="lblUnitPriceVATValue" 
+                            FontSize="{StaticResource StandardLabelFontSize}" HorizontalOptions="FillAndExpand" 
+                            IsEnabled="false" VerticalOptions="Center" IsLineEntry="true" 
+                            Text="{Binding drTestata.UnitPriceVAT, StringFormat = '{0:C3}'}"
+                            WidthRequest="{StaticResource GeneralEntryWidth}" 
+                            LineEntryColor="{StaticResource NavigationBarBackgroundColor}">
+                        </sys2:CustomEntry>
+                    </Grid>
+
+                    <sfpicker:SfPicker x:Name="ddlModalitaPagamento" 
+                                       HeaderBackgroundColor="{StaticResource NavigationBarBackgroundColor}"
+                                       SelectedItemTextColor="{StaticResource NavigationBarBackgroundColor}"
+                                       HeaderTextColor="White" HeaderText="{i18n:Translate FormNuovoDocLabelSelModPagamento}" 
+                                       ItemsSource="{Binding ModalitaPagamentoDDL}" 
+                                       PickerHeight="200" IsOpen="false" PickerMode="Dialog"  
+                                       ShowHeader="true" ShowFooter="true" PickerWidth="300" 
+                                       OkButtonClicked="ddlModalitaPagamentoHandle_OkButtonClicked" />
+
+                    <sfpicker:SfPicker x:Name="ddlCliente" 
+                                       HeaderBackgroundColor="{StaticResource NavigationBarBackgroundColor}"
+                                       SelectedItemTextColor="{StaticResource NavigationBarBackgroundColor}"
+                                       HeaderTextColor="White" HeaderText="{i18n:Translate FormNuovoDocLabelSelCliente}" 
+                                       ItemsSource="{Binding ClientiDDL}"
+                                       PickerHeight="200" IsOpen="false" PickerMode="Dialog"  
+                                       ShowHeader="true" ShowFooter="true" PickerWidth="300" 
+                                       OkButtonClicked="ddlClienteHandle_OkButtonClicked" />
+
+                    <local:CustomDatePicker x:Name="pickerReceiptDate" ColumnHeaderHeight="40" HorizontalOptions="Center" 
+                                            HeaderBackgroundColor="{StaticResource NavigationBarBackgroundColor}"
+                                            SelectedItemTextColor="{StaticResource NavigationBarBackgroundColor}"
+                                            HeaderTextColor="White"
+                                            PickerHeight="300" PickerMode="Dialog" PickerWidth="300" VerticalOptions="Center" 
+                                            OkButtonClicked="pickerReceiptDate_OkButtonClicked" />
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="10,0,10,0">
+                <Label VerticalOptions="Center" HorizontalOptions="FillAndExpand"
+                    FontSize="{StaticResource StandardLabelFontSize}" 
+                    Text="{i18n:Translate FormDettClienteLabelAltriDati}" />
+                <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                    <Image x:Name="imgMoreAltriDati" Source="MoreIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AltriDati_Tapped" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout x:Name="slSalvaAnnulla" IsVisible="{Binding slSalvaAnnullaVisible}" Orientation="Horizontal" 
+                         HorizontalOptions="Center" VerticalOptions="End">
+                <Button x:Name="btnSalva" CornerRadius="0" Text="{i18n:Translate TestoBtnSalvaDocumento}" 
+                        Margin="20,10,20,20" VerticalOptions="End" Style="{StaticResource SmallButtonStyle}"
+                        BackgroundColor="{StaticResource MainAppColor}" Command="{Binding cmdbtnSalva}" />
+                <Button x:Name="btnAnnulla" CornerRadius="0" Text="{i18n:Translate TestoBtnAnnullaDocumento}" 
+                        Margin="0,10,20,20" VerticalOptions="End" Style="{StaticResource SmallButtonStyle}" 
+                        BackgroundColor="{StaticResource MainAppColor}" Command="{Binding cmdbtnAnnulla}" />
+            </StackLayout>
+
+            <StackLayout x:Name="slChiudi" IsVisible="{Binding slChiudiVisible}" Orientation="Horizontal" 
+                         HorizontalOptions="Center" VerticalOptions="End">
+                <Button x:Name="btnChiudi" CornerRadius="0" Text="{i18n:Translate TestoBtnChiudiDocumento}" 
+                        Margin="20,10,20,20" VerticalOptions="End" Style="{StaticResource SmallButtonStyle}" 
+                        BackgroundColor="{StaticResource MainAppColor}" Command="{Binding cmdbtnChiudi}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

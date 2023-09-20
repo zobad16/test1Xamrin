@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test1Xamrin.SceltaProdotti"
+             xmlns:local="clr-namespace:test1Xamrin"
+             xmlns:sys2="clr-namespace:xUtilityPCL"
+             xmlns:i18n="clr-namespace:test1Xamrin">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <sys2:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Label x:Name="lblTitolo" BackgroundColor="White"
+                Text="{i18n:Translate FormSceltaProdottoLblTitolo}"
+                HorizontalOptions="Center" FontSize="{StaticResource StandardLabelFontSize}"
+                TextColor="{StaticResource NavigationBarBackgroundColor}" Margin="0,5,0,0"/>
+            <ListView x:Name="lstProdotti" RowHeight="80" 
+                SeparatorVisibility="Default" BackgroundColor="White" 
+                SeparatorColor="#DFDFDF" HasUnevenRows="false" 
+                ItemsSource="{Binding mySceltaProdottiItemsWrapper.ProdottiItems}">
+                <ListView.Behaviors>
+                    <sys2:EventToCommandBehavior EventName="ItemSelected" 
+                        Command="{Binding cmdSelezionaCarburante}" Converter="{StaticResource SelectedItemConverter}" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <local:ProdottiCell />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

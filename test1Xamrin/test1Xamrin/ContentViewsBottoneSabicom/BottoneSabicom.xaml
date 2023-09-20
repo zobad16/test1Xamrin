@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="xUtilityPCL.bottoneSabicom" x:Name="root">
+    <ContentView.Content>
+        <RelativeLayout HorizontalOptions="Center" Padding="0" Margin="0,0,0,0">
+            <Button x:Name="myButton" CornerRadius="5" VerticalOptions="Fill" 
+				HorizontalOptions="Fill" BorderWidth="2" BackgroundColor="White"
+				FontSize="{Binding Source={x:Reference root}, Path=ButtonFontSize}" 
+				HeightRequest="{Binding Source={x:Reference root}, Path=ButtonHeight}" 
+				WidthRequest="{Binding Source={x:Reference root}, Path=ButtonWidth}" 
+				BorderColor="{Binding Source={x:Reference root}, Path=BorderColorButton}" 
+				TextColor="{Binding Source={x:Reference root}, Path=TextColorButton}"
+				Text="{Binding Source={x:Reference root}, Path=LabelButton}" 
+				Command="{Binding Source={x:Reference root}, Path=lblBtnTapCommand}">
+            </Button>
+            <!--	Importante: finchè non si setta il backgroundcolor del bottone il bordo non si vede
+		https://forums.xamarin.com/discussion/23039/button-bordercolor-not-showing-on-android-4-4
+			-->
+            <StackLayout 
+				RelativeLayout.WidthConstraint="{ConstraintExpression &#xA;				
+				Type=RelativeToView, ElementName=myButton,Property=Width}" 
+				RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,&#xA;            	
+				ElementName=myButton,Property=Height,Factor=-0.7,Constant=0}" 
+				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToView,&#xA;            	
+				ElementName=myButton,Property=Height,Factor=1.7,Constant=0}" 
+				HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                <controls:CircleImage x:Name="imgBottone" Aspect="AspectFill" 
+				Source="{Binding Source={x:Reference root}, Path=ImageNameButton}" 
+				HorizontalOptions="Center" VerticalOptions="End" BorderThickness="1" 
+				HeightRequest="{Binding Source={x:Reference root}, Path=CircleHeight}" 
+				WidthRequest="{Binding Source={x:Reference root}, Path=CircleWidth}" 
+				BorderColor="{Binding Source={x:Reference root}, Path=CircleBorderColor}" />
+            </StackLayout>
+        </RelativeLayout>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test1Xamrin.ChatBotLoadIndicator"
+             BackgroundColor="#80000000">
+    <ContentPage.Content>
+        <StackLayout x:Name="slChatBotIndicator"
+            Padding="30"
+            BackgroundColor="{StaticResource MainAppColor}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            <ActivityIndicator IsRunning="True" Color="White" />
+            <Label x:Name="lblChatBotIndicator"
+                FontAttributes="Bold"
+                Text="Yo! Hold on..."
+                TextColor="White" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

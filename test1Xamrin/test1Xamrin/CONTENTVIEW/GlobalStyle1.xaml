@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="xUtilityPCL.GlobalStyle1">
+    <!--  Padding  -->
+    <OnPlatform x:Key="LeftMenuPadding" x:TypeArguments="Thickness" iOS="0,65,0,0" Android="0,0,0,0" />
+    <!-- in IOS è altezza statusbar + navigationbar in android è il padding interno del menu di sx -->
+    <!--  colors  -->
+    <!--<Color x:Key="MainAppColor">#1b9ed6</Color>-->
+    <!--<Color x:Key="SecondMainAppColor">#5a5b56</Color>-->
+    <!--<Color x:Key="NavigationBarBackgroundColor">#1b9ed6</Color>-->
+    <Color x:Key="NavigationBarTextColor">White</Color>
+    <Color x:Key="ErrorColor">#ff5252</Color>
+    <Color x:Key="AppTextColor">White</Color>
+    <!--  font families  -->
+    <OnPlatform x:Key="RegularFontFamily" x:TypeArguments="x:String" iOS="HelveticaNeue" Android="sans-serif" />
+    <OnPlatform x:Key="LightFontFamily" x:TypeArguments="x:String" iOS="HelveticaNeue-Light" Android="sans-serif-light" />
+    <OnPlatform x:Key="MediumFontFamily" x:TypeArguments="x:String" iOS="HelveticaNeue-Medium" Android="sans-serif-medium" />
+    <OnPlatform x:Key="SmallFontFamily" x:TypeArguments="x:String" iOS="HelveticaNeue-Small" Android="sans-serif-small" />
+    <!--  sizes  -->
+    <OnIdiom x:Key="LeftMenuListViewRowHeight" x:TypeArguments="x:Int32" Phone="50" Tablet="80" />
+    <OnIdiom x:Key="LeftMenuCellImageColumnWidth" x:TypeArguments="GridLength" Phone="35" Tablet="56" />
+    <OnIdiom x:Key="LeftMenuCellImageSize" x:TypeArguments="x:Double" Phone="35" Tablet="45" />
+    <OnIdiom x:Key="LeftMenuCellFontSize" x:TypeArguments="x:Double" Phone="18" Tablet="25" />
+
+    <OnIdiom x:Key="CellSmallLabelFontSize" x:TypeArguments="x:Double" Phone="12" Tablet="19.2" />
+    <OnIdiom x:Key="SmallLabelFontSize" x:TypeArguments="x:Double" Phone="13.5" Tablet="21.6" />
+
+    <OnIdiom x:Key="StandardLabelFontSize" x:TypeArguments="x:Double" Phone="17" Tablet="17" />
+    <OnIdiom x:Key="StandardAutoCompleteTextSize" x:TypeArguments="x:Int32" Phone="17" Tablet="20" />
+    <OnIdiom x:Key="StandardEntryFontSize" x:TypeArguments="x:Double" Phone="17" Tablet="27" />
+    <OnIdiom x:Key="HeaderFontSize" x:TypeArguments="x:Double" Phone="22" Tablet="35" />
+    <OnIdiom x:Key="SubHeaderFontSize" x:TypeArguments="x:Double" Phone="16" Tablet="26" />
+    <OnIdiom x:Key="BigButtonFontSize" x:TypeArguments="x:Double" Phone="16" Tablet="26" />
+    <OnIdiom x:Key="SmallButtonFontSize" x:TypeArguments="x:Double" Phone="12" Tablet="19" />
+    <OnIdiom x:Key="LoginEntryWidth" x:TypeArguments="x:Double" Phone="200" Tablet="320" />
+    <OnIdiom x:Key="GeneralEntryWidth" x:TypeArguments="x:Double" Phone="-1" Tablet="-1" />
+    <OnIdiom x:Key="BigCustomButtonWidth" x:TypeArguments="x:Double" Phone="180" Tablet="290" />
+    <OnIdiom x:Key="SmallCustomButtonWidth" x:TypeArguments="x:Double" Phone="110" Tablet="180" />
+    <OnIdiom x:Key="BigCustomButtonHeight" x:TypeArguments="x:Double" Phone="50" Tablet="75" />
+    <OnIdiom x:Key="SmallCustomButtonHeight" x:TypeArguments="x:Double" Phone="38" Tablet="61" />
+    <OnIdiom x:Key="BigCustomButtonCircleSize" x:TypeArguments="x:Double" Phone="45" Tablet="72" />
+    <OnIdiom x:Key="SmallCustomButtonCircleSize" x:TypeArguments="x:Double" Phone="35" Tablet="56" />
+    <OnIdiom x:Key="ButtonWidth" x:TypeArguments="x:Double" Phone="300" Tablet="450" />
+    <OnIdiom x:Key="SmallButtonWidth" x:TypeArguments="x:Double" Phone="130" Tablet="210" />
+    <OnIdiom x:Key="MediumButtonWidth" x:TypeArguments="x:Double" Phone="160" Tablet="260" />
+    <OnIdiom x:Key="ButtonFontSize" x:TypeArguments="x:Double" Phone="14" Tablet="17" />
+    <!--<OnIdiom x:Key="LogoImageHeight" x:TypeArguments="x:Double" Phone="25" Tablet="40" />-->
+    <OnIdiom x:Key="FormGridLabelColumnWidth" x:TypeArguments="GridLength" Phone="150" Tablet="240" />
+    <!--<OnPlatform x:Key="LittleSize" x:TypeArguments="x:Double">
+				<On Platform="iOS" Value="11" />
+				<On Platform="Android, UWP, WinRT, WinPhone" Value="12" />
+			</OnPlatform>-->
+    <OnPlatform x:Key="LittleSize" x:TypeArguments="x:Double" iOS="11" Android="12" />
+    <!--positions-->
+    <OnPlatform x:Key="LabelVerticalPosition" x:TypeArguments="LayoutOptions" iOS="Center" Android="Center" />
+    <!--  styles  -->
+    <Style x:Key="ValidationErrorLabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource ErrorColor}" />
+        <Setter Property="FontSize" Value="{StaticResource LittleSize}" />
+    </Style>
+    <Style x:Key="MainButtonStyle" TargetType="Button">
+        <Setter Property="WidthRequest" Value="{StaticResource ButtonWidth}" />
+        <!--<Setter Property="BackgroundColor" Value="{StaticResource MainAppColor}" />-->
+        <Setter Property="TextColor" Value="{StaticResource AppTextColor}" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="BorderRadius" Value="20" />
+        <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource ButtonFontSize}" />
+    </Style>
+    <Style x:Key="SmallButtonStyle" TargetType="Button">
+        <Setter Property="WidthRequest" Value="{StaticResource SmallButtonWidth}" />
+        <!--<Setter Property="BackgroundColor" Value="{StaticResource MainAppColor}" />-->
+        <Setter Property="TextColor" Value="{StaticResource AppTextColor}" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="BorderRadius" Value="20" />
+        <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource ButtonFontSize}" />
+    </Style>
+    <Style x:Key="MediumButtonStyle" TargetType="Button">
+        <Setter Property="WidthRequest" Value="{StaticResource MediumButtonWidth}" />
+        <!--<Setter Property="BackgroundColor" Value="{StaticResource MainAppColor}" />-->
+        <Setter Property="TextColor" Value="{StaticResource AppTextColor}" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="BorderRadius" Value="20" />
+        <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource ButtonFontSize}" />
+    </Style>
+
+    <Style x:Key="U_LabelLeft" TargetType="Label">
+        <!--non usato-->
+        <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="Red" />
+        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+    </Style>
+
+    <Style x:Key="U_LabelRight" TargetType="Label">
+        <!--non usato-->
+        <Setter Property="FontFamily" Value="{StaticResource SmallFontFamily}" />
+        <Setter Property="FontAttributes" Value="None" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+    </Style>
+
+
+</ResourceDictionary>

@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test1Xamrin.DocumentoCell"
+             xmlns:sys2="clr-namespace:xUtilityPCL"
+             xmlns:i18n="clr-namespace:test1Xamrin"
+             x:DataType="i18n:FEC_InvoiceRequests"
+             >
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <sys2:EmptyDateConverter x:Key="myEmptyDateConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <StackLayout Spacing="0" Padding="5">
+            <Grid Padding="0" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="AUTO" />
+                    <ColumnDefinition Width="AUTO" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO" />
+                </Grid.RowDefinitions>
+                <Label BackgroundColor="{Binding ColoreUnbound}" VerticalOptions="FillAndExpand" WidthRequest="4" Grid.Row="0" Grid.Column="0"/>
+
+                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                    <Label x:Name="lblTipoDocumento" FontFamily="{StaticResource MediumFontFamily}" 
+                        FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="Center"
+                        HorizontalOptions="StartAndExpand" Text="{Binding DescrizioneTipoUnbound}" />
+                    <Label FontFamily="{StaticResource MediumFontFamily}" 
+                        FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="Center" 
+                        HorizontalOptions="StartAndExpand" Text="{Binding ReceiptNumber}" />
+                    <Label FontFamily="{StaticResource MediumFontFamily}" 
+                        FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="Center" 
+                        HorizontalOptions="StartAndExpand" Text="{i18n:Translate CellaDocumentoParolaDel}" />
+                    <Label FontFamily="{StaticResource MediumFontFamily}" 
+                        FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="Center"
+                        HorizontalOptions="StartAndExpand" 
+                        Text="{Binding Receiptdate, Converter={StaticResource myEmptyDateConverter}}" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Padding="0" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="AUTO" />
+                    <ColumnDefinition Width="AUTO" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO" />
+                </Grid.RowDefinitions>
+                <Label BackgroundColor="{Binding ColoreUnbound}" VerticalOptions="FillAndExpand" WidthRequest="4" Grid.Row="0" Grid.Column="0"/>
+
+                <Label Grid.Row="0" Grid.Column="1" VerticalOptions="Center"
+                    FontSize="{StaticResource StandardLabelFontSize}" 
+                    FontFamily="{StaticResource MediumFontFamily}" TextColor="{StaticResource MainAppColorGradient1}"  
+                    HorizontalOptions="StartAndExpand" Text="{Binding IDCompanyCompanyName}" />
+            </Grid>
+
+            <Grid Padding="0" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="AUTO" />
+                    <ColumnDefinition Width="AUTO" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO" />
+                </Grid.RowDefinitions>
+                <Label BackgroundColor="{Binding ColoreUnbound}" VerticalOptions="FillAndExpand" WidthRequest="4" Grid.Row="0" Grid.Column="0"/>
+
+                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Spacing="3" >
+                    <Label FontFamily="{StaticResource MediumFontFamily}" TextColor="{StaticResource MainAppColorGradient2}"
+                        FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="Center"
+                        HorizontalOptions="StartAndExpand" Text="{Binding ItemCodeDescription}" />
+                    <Label FontFamily="{StaticResource MediumFontFamily}" TextColor="{StaticResource MainAppColorGradient2}"
+                        FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="Center" Text="-" />
+                    <Label FontFamily="{StaticResource MediumFontFamily}" TextColor="{StaticResource MainAppColorGradient2}"
+                        FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="Center" 
+                        HorizontalOptions="StartAndExpand" 
+                           Text="{Binding UnitPriceVAT,
+                                    StringFormat='{0:C3}'}" />
+                    <Label FontFamily="{StaticResource MediumFontFamily}" TextColor="{StaticResource MainAppColorGradient2}"
+                        FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="Center" Text="-" />
+                    <Label FontFamily="{StaticResource MediumFontFamily}" TextColor="{StaticResource MainAppColorGradient2}"
+                        FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="Center" 
+                        HorizontalOptions="StartAndExpand" Text="{Binding TotalAmount, StringFormat='{0:C3}'}" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Padding="0" RowSpacing="0" IsVisible="{Binding IsCellaDocRigaGenerataFtRicNumDelVisibleUnbound}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="AUTO" />
+                    <ColumnDefinition Width="AUTO" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO" />
+                </Grid.RowDefinitions>
+                <Label BackgroundColor="{Binding ColoreUnbound}" VerticalOptions="FillAndExpand" WidthRequest="4" Grid.Row="0" Grid.Column="0"/>
+
+                <Label Grid.Row="0" Grid.Column="1" VerticalOptions="Center"
+                    FontSize="{StaticResource StandardLabelFontSize}" 
+                    FontFamily="{StaticResource MediumFontFamily}" TextColor="{StaticResource MainAppColorGradient3}"
+                    HorizontalOptions="StartAndExpand" Text="{Binding GenerataFtRicNumDelUnbound}" />
+            </Grid>
+
+            <Grid Padding="0" RowSpacing="0" IsVisible="{Binding IsMsgRichiestaRespintaVisibleUnbound}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="AUTO" />
+                    <ColumnDefinition Width="AUTO" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO" />
+                </Grid.RowDefinitions>
+                <Label BackgroundColor="{Binding ColoreUnbound}" VerticalOptions="FillAndExpand" WidthRequest="4" Grid.Row="0" Grid.Column="0"/>
+
+                <Label Grid.Row="0" Grid.Column="1" VerticalOptions="Center"
+                    FontSize="{StaticResource StandardLabelFontSize}" 
+                    FontFamily="{StaticResource MediumFontFamily}" TextColor="{StaticResource MainAppColorGradient3}"
+                    HorizontalOptions="StartAndExpand" Text="{Binding MsgRichiestaRespintaUnbound}" />
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

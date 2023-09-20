@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test1Xamrin.TestSincronizzazione"
+             xmlns:local="clr-namespace:test1Xamrin"
+             xmlns:sys2="clr-namespace:xUtilityPCL"
+             xmlns:i18n="clr-namespace:test1Xamrin"
+             BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnIdiom x:Key="FormGridLabelColumnWidth" x:TypeArguments="GridLength" Phone="160" Tablet="256" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="slRiepilogoSingolo">
+                <Label Margin="10,5,10,0" FontSize="{StaticResource HeaderFontSize}" VerticalOptions="Center" 
+                    HorizontalOptions="Center" x:Name="lblTitoloRiepilogoDoc" Text="" />
+                <Grid Padding="10,5,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{StaticResource FormGridLabelColumnWidth}" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="AUTO" />
+                        <RowDefinition Height="AUTO" />
+                        <RowDefinition Height="AUTO" />
+                        <RowDefinition Height="AUTO" />
+                        <RowDefinition Height="AUTO" />
+                    </Grid.RowDefinitions>
+                    <!--riga 1-->
+                    <Label Grid.Column="0" Grid.Row="0" LineBreakMode="WordWrap" 
+                        VerticalOptions="Center" FontSize="{StaticResource StandardLabelFontSize}" 
+                        Text="{i18n:Translate FormSincroRiepilogoLabelNomeDitta}" />
+                    <Label Grid.Column="1" Grid.Row="0" LineBreakMode="WordWrap" 
+                        VerticalOptions="Center" FontSize="{StaticResource StandardLabelFontSize}" 
+                        Text="{Binding drTestata.IDCompanyCompanyName}" />
+                    <!--riga 2-->
+                    <Label Grid.Column="0" Grid.Row="1" LineBreakMode="WordWrap" 
+                        VerticalOptions="Center" FontSize="{StaticResource StandardLabelFontSize}" 
+                        Text="{i18n:Translate FormSincroRiepilogoLabelTarga}" />
+                    <Label Grid.Column="1" Grid.Row="1" LineBreakMode="WordWrap" 
+                        VerticalOptions="Center" FontSize="{StaticResource StandardLabelFontSize}" 
+                        Text="{Binding drTestata.Plate}" />
+                    <!--riga 3-->
+                    <Label Grid.Column="0" Grid.Row="2" LineBreakMode="WordWrap" 
+                        VerticalOptions="Center" FontSize="{StaticResource StandardLabelFontSize}" 
+                        Text="{i18n:Translate FormSincroRiepilogoLabelRecapito}" />
+                    <Label Grid.Column="1" Grid.Row="2" LineBreakMode="WordWrap" 
+                        VerticalOptions="Center" FontSize="{StaticResource StandardLabelFontSize}" 
+                        Text="{Binding drTestata.RecapitoUnbound}" />
+                    <!--riga 4-->
+                    <Label Grid.Column="0" Grid.Row="3" LineBreakMode="WordWrap" 
+                        VerticalOptions="Center" FontSize="{StaticResource StandardLabelFontSize}" 
+                        Text="{i18n:Translate FormSincroRiepilogoLabelTotalePagato}" />
+                    <Label Grid.Column="1" Grid.Row="3" LineBreakMode="WordWrap" 
+                        VerticalOptions="Center" FontSize="{StaticResource StandardLabelFontSize}" 
+                        Text="{Binding drTestata.TotalAmount, StringFormat = '{0:C2}'}" />
+                    <!--riga 5-->
+                    <Label Grid.Column="0" Grid.Row="4" LineBreakMode="WordWrap" x:Name="lblProdottiIntestazione"
+                        VerticalOptions="Center" FontSize="{StaticResource StandardLabelFontSize}" 
+                        Text="" />
+                    <Label x:Name="lblProdotti" Grid.Column="1" Grid.Row="4" LineBreakMode="WordWrap" 
+                        VerticalOptions="Center" FontSize="{StaticResource StandardLabelFontSize}" 
+                        Text="Stuff on line1&#x9;100&#x0a;Stuff on line 2&#x9;10000" />
+                </Grid>
+            </StackLayout>
+
+            <Button Style="{StaticResource SmallButtonStyle}" BackgroundColor="{StaticResource MainAppColor}" 
+                Margin="20,10,20,0" CornerRadius="0" x:Name="btnSincro"
+                Text="" Clicked="btnSincro_Clicked"/>
+
+            <Button Style="{StaticResource SmallButtonStyle}" BackgroundColor="{StaticResource MainAppColor}" 
+                Margin="20,10,20,0" BorderRadius="0" x:Name="btnAnteprima" IsVisible="false"
+                Text="{i18n:Translate FormSincroBottoneAnteprimaFattura}" Clicked="HandleAnteprimaFattura"/>
+
+            <Button Style="{StaticResource SmallButtonStyle}" BackgroundColor="{StaticResource MainAppColor}" 
+                Margin="20,10,20,0" BorderRadius="0" x:Name="btnEsci"
+                Text="{i18n:Translate FormSincroBottoneEsci}" Clicked="btnEsci_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

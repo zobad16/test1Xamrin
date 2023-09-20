@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:test1Xamrin"
+             xmlns:model="clr-namespace:test1Xamrin"
+             xmlns:sys2="clr-namespace:xUtilityPCL"
+             xmlns:i18n="clr-namespace:test1Xamrin"
+             x:Class="test1Xamrin.DettaglioClienteAltriDati"
+             x:DataType="model:FEC_CustomersSystem">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <sys2:FirstValidationErrorConverter x:Key="FirstValidationErrorConverter" />
+            <local:FakeConverterDichiarazioneIntenti x:Key="myFakeConverterDichiarazioneIntenti" />
+            <OnPlatform x:Key="SwitchMargin" x:TypeArguments="Thickness" iOS="0,5,0,0" Android="0,10,0,5" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView VerticalOptions="StartAndExpand">
+                <StackLayout Padding="10">
+                    <Grid RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource FormGridLabelColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                        </Grid.RowDefinitions>
+                        <!--riga 1-->
+                        <Label Margin="0,5,0,0" Grid.Column="0" Grid.Row="0" x:Name="lblNumOrdine" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" 
+                            Text="{i18n:Translate FormSincroRiepilogoLabelNumOrdine}" />
+                        <StackLayout Margin="0,5,0,0" Grid.Column="1" Grid.Row="0" Orientation="Vertical">
+                            <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" 
+                                x:Name="txtNumOrdine" LineEntryColor="{StaticResource MainAppColor}" 
+                                HorizontalOptions="FillAndExpand" IsLineEntry="true" 
+                                WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                Text="{Binding NumeroOrdine_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" 
+                                        Command="{Binding ValidateNumeroOrdineCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" 
+                                        Binding="{Binding NumeroOrdine_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding NumeroOrdine_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" 
+                                IsVisible="{Binding NumeroOrdine_VAL.IsInError}" 
+                                Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 2-->
+                        <Label Margin="0,5,0,0" Grid.Column="0" Grid.Row="1" x:Name="lblDataOrdine" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" 
+                            Text="{i18n:Translate FormSincroRiepilogoLabelDataOrdine}" />
+                        <StackLayout Margin="0,5,0,0" Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <sys2:CustomEntry x:Name="txtDataOrdine" 
+                                    WidthRequest="{StaticResource GeneralEntryWidth}" IsEnabled="false" 
+                                    FontSize="{StaticResource StandardLabelFontSize}" 
+                                    VerticalOptions="Center" IsLineEntry="true" 
+                                    Placeholder="{i18n:Translate FormDocumentiPlaceholderDate}" 
+                                    LineEntryColor="{StaticResource NavigationBarBackgroundColor}" 
+                                    Text="{Binding DataOrdine_VAL.Value, Mode=TwoWay}">
+                                    <sys2:CustomEntry.Behaviors>
+                                        <sys2:EventToCommandBehavior EventName="TextChanged" 
+                                            Command="{Binding ValidateDataOrdineCommand}" />
+                                    </sys2:CustomEntry.Behaviors>
+                                    <sys2:CustomEntry.Triggers>
+                                        <DataTrigger TargetType="{x:Type sys2:CustomEntry}" 
+                                            Binding="{Binding DataOrdine_VAL.IsValid}" Value="False">
+                                            <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                        </DataTrigger>
+                                    </sys2:CustomEntry.Triggers>
+                                </sys2:CustomEntry>
+                                <Label Text="{Binding DataOrdine_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" 
+                                    IsVisible="{Binding DataOrdine_VAL.IsInError}" 
+                                Style="{StaticResource ValidationErrorLabelStyle}" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="txtDataOrdine_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                <Image x:Name="imgPulisciDataOrdine" Source="ClearIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="pulisciTxtDataOrdine_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--riga 3-->
+                        <Label Margin="0,5,0,0" Grid.Column="0" Grid.Row="2" x:Name="lblNumContratto" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" 
+                            Text="{i18n:Translate FormSincroRiepilogoLabelNumContratto}" />
+                        <StackLayout Margin="0,5,0,0" Grid.Column="1" Grid.Row="2" Orientation="Vertical">
+                            <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" 
+                                x:Name="txtNumContratto" LineEntryColor="{StaticResource MainAppColor}" 
+                                HorizontalOptions="FillAndExpand" IsLineEntry="true" 
+                                WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                Text="{Binding NumeroContratto_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" 
+                                        Command="{Binding ValidateNumeroContrattoCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" 
+                                        Binding="{Binding NumeroContratto_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding NumeroContratto_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" 
+                                IsVisible="{Binding NumeroContratto_VAL.IsInError}" 
+                                Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 4-->
+                        <Label Margin="0,5,0,0" Grid.Column="0" Grid.Row="3" x:Name="lblDataContratto" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" 
+                            Text="{i18n:Translate FormSincroRiepilogoLabelDataContratto}" />
+                        <StackLayout Margin="0,5,0,0" Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <sys2:CustomEntry x:Name="txtDataContratto" 
+                                    WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                    IsEnabled="false" FontSize="{StaticResource StandardLabelFontSize}" 
+                                    VerticalOptions="Center" IsLineEntry="true" 
+                                    Placeholder="{i18n:Translate FormDocumentiPlaceholderDate}" 
+                                    LineEntryColor="{StaticResource NavigationBarBackgroundColor}"
+                                    Text="{Binding DataContratto_VAL.Value, Mode=TwoWay}">
+                                    <sys2:CustomEntry.Behaviors>
+                                        <sys2:EventToCommandBehavior EventName="TextChanged" 
+                                            Command="{Binding ValidateDataContrattoCommand}" />
+                                    </sys2:CustomEntry.Behaviors>
+                                    <sys2:CustomEntry.Triggers>
+                                        <DataTrigger TargetType="{x:Type sys2:CustomEntry}" 
+                                            Binding="{Binding DataContratto_VAL.IsValid}" Value="False">
+                                            <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                        </DataTrigger>
+                                    </sys2:CustomEntry.Triggers>
+                                </sys2:CustomEntry>
+                                <Label Text="{Binding DataContratto_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" 
+                                    IsVisible="{Binding DataContratto_VAL.IsInError}" 
+                                    Style="{StaticResource ValidationErrorLabelStyle}" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="txtDataContratto_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                <Image x:Name="imgPulisciDataContratto" Source="ClearIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="pulisciTxtDataContratto_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--riga 5-->
+                        <Label Margin="0,5,0,0" Grid.Column="0" Grid.Row="4" x:Name="lblNumConvenzione" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" 
+                            Text="{i18n:Translate FormSincroRiepilogoLabelNumConvenzione}" />
+                        <StackLayout Margin="0,5,0,0" Grid.Column="1" Grid.Row="4" Orientation="Vertical">
+                            <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" 
+                                x:Name="txtNumConvenzione" LineEntryColor="{StaticResource MainAppColor}" 
+                                HorizontalOptions="FillAndExpand" IsLineEntry="true" 
+                                WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                Text="{Binding NumeroConvenzione_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" 
+                                        Command="{Binding ValidateNumeroConvenzioneCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" 
+                                        Binding="{Binding NumeroConvenzione_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding NumeroConvenzione_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" 
+                                IsVisible="{Binding NumeroConvenzione_VAL.IsInError}" 
+                                Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 6-->
+                        <Label Margin="0,5,0,0" Grid.Column="0" Grid.Row="5" x:Name="lblDataConvenzione" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" 
+                            Text="{i18n:Translate FormSincroRiepilogoLabelDataConvenzione}" />
+                        <StackLayout Margin="0,5,0,0" Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <sys2:CustomEntry x:Name="txtDataConvenzione" 
+                                    WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                    IsEnabled="false" FontSize="{StaticResource StandardLabelFontSize}" 
+                                    VerticalOptions="Center" IsLineEntry="true" 
+                                    Placeholder="{i18n:Translate FormDocumentiPlaceholderDate}" 
+                                    LineEntryColor="{StaticResource NavigationBarBackgroundColor}"
+                                    Text="{Binding DataConvenzione_VAL.Value, Mode=TwoWay}">
+                                    <sys2:CustomEntry.Behaviors>
+                                        <sys2:EventToCommandBehavior EventName="TextChanged" 
+                                            Command="{Binding ValidateDataConvenzioneCommand}" />
+                                    </sys2:CustomEntry.Behaviors>
+                                    <sys2:CustomEntry.Triggers>
+                                        <DataTrigger TargetType="{x:Type sys2:CustomEntry}" 
+                                            Binding="{Binding DataConvenzione_VAL.IsValid}" Value="False">
+                                            <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                        </DataTrigger>
+                                    </sys2:CustomEntry.Triggers>
+                                </sys2:CustomEntry>
+                                <Label Text="{Binding DataConvenzione_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" 
+                                    IsVisible="{Binding DataConvenzione_VAL.IsInError}" 
+                                    Style="{StaticResource ValidationErrorLabelStyle}" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="txtDataConvenzione_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                <Image x:Name="imgPulisciDataConvenzione" Source="ClearIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="pulisciTxtDataConvenzione_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--riga 7-->
+                        <Label Margin="0,5,0,0" Grid.Column="0" Grid.Row="6" x:Name="lblNumRicezione" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" 
+                            Text="{i18n:Translate FormSincroRiepilogoLabelNumRicezione}" />
+                        <StackLayout Margin="0,5,0,0" Grid.Column="1" Grid.Row="6" Orientation="Vertical">
+                            <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" 
+                                x:Name="txtNumRicezione" LineEntryColor="{StaticResource MainAppColor}" 
+                                HorizontalOptions="FillAndExpand" IsLineEntry="true" 
+                                WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                Text="{Binding NumeroRicezione_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" 
+                                        Command="{Binding ValidateNumeroRicezioneCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" 
+                                        Binding="{Binding NumeroRicezione_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding NumeroRicezione_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" 
+                                IsVisible="{Binding NumeroRicezione_VAL.IsInError}" 
+                                Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 8-->
+                        <Label Margin="0,5,0,0" Grid.Column="0" Grid.Row="7" x:Name="lblDataRicezione" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" 
+                            Text="{i18n:Translate FormSincroRiepilogoLabelDataRicezione}" />
+                        <StackLayout Margin="0,5,0,0" Grid.Column="1" Grid.Row="7" Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <sys2:CustomEntry x:Name="txtDataRicezione" 
+                                    WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                    IsEnabled="false" FontSize="{StaticResource StandardLabelFontSize}" 
+                                    VerticalOptions="Center" IsLineEntry="true" 
+                                    Placeholder="{i18n:Translate FormDocumentiPlaceholderDate}" 
+                                    LineEntryColor="{StaticResource NavigationBarBackgroundColor}"
+                                    Text="{Binding DataRicezione_VAL.Value, Mode=TwoWay}">
+                                    <sys2:CustomEntry.Behaviors>
+                                        <sys2:EventToCommandBehavior EventName="TextChanged" 
+                                            Command="{Binding ValidateDataRicezioneCommand}" />
+                                    </sys2:CustomEntry.Behaviors>
+                                    <sys2:CustomEntry.Triggers>
+                                        <DataTrigger TargetType="{x:Type sys2:CustomEntry}" 
+                                            Binding="{Binding DataRicezione_VAL.IsValid}" Value="False">
+                                            <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                        </DataTrigger>
+                                    </sys2:CustomEntry.Triggers>
+                                </sys2:CustomEntry>
+                                <Label Text="{Binding DataRicezione_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" 
+                                    IsVisible="{Binding DataRicezione_VAL.IsInError}" 
+                                    Style="{StaticResource ValidationErrorLabelStyle}" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="txtDataRicezione_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                <Image x:Name="imgPulisciDataRicezione" Source="ClearIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="pulisciTxtDataRicezione_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--riga 9-->
+                        <Label Margin="0,5,0,0" Grid.Column="0" Grid.Row="8" x:Name="lblIsPrivate" LineBreakMode="WordWrap" 
+                               FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                               Text="{i18n:Translate FormDettClienteLblIsPrivate}" />
+                        <Switch  VerticalOptions="Center" Grid.Column="1" Grid.Row="8" x:Name="swIsPrivate" 
+                                Margin="{StaticResource SwitchMargin}" IsToggled="{Binding IsPrivate}" />
+                        <!--riga 10-->
+                        <Label Grid.Column="0" Grid.Row="9" x:Name="lblDefTaxCode" LineBreakMode="WordWrap" 
+                               FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                               Text="{i18n:Translate FormDettClienteLblDichiarazioneIntento}" />
+                        <Switch VerticalOptions="Center" Grid.Column="1" Grid.Row="9" x:Name="swDefTaxCode" 
+                                Margin="{StaticResource SwitchMargin}" 
+                                IsToggled="{Binding TaxCodeDefault, Converter={StaticResource myFakeConverterDichiarazioneIntenti}}" />
+                        <!--riga 11-->
+                        <Label Margin="0,5,0,0" Grid.Column="0" Grid.Row="10" x:Name="lblSoggettoARitenuta" LineBreakMode="WordWrap" 
+                               FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                               Text="{i18n:Translate FormDettClienteLblSoggettoARitenuta}" />
+                        <Switch VerticalOptions="Center" Grid.Column="1" Grid.Row="10" x:Name="swSoggettoARitenuta" 
+                                Margin="{StaticResource SwitchMargin}" 
+                                IsToggled="{Binding IsLiableForWithholdingTaxPercentageCompanyType2}" />
+                        <!--riga 12-->
+                        <Label Margin="0,5,0,0" Grid.Column="0" Grid.Row="11" x:Name="lblSplitPayment" LineBreakMode="WordWrap" 
+                               FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                               Text="{i18n:Translate FormDettClienteLblSplitPayment}" />
+                        <Switch VerticalOptions="Center" Grid.Column="1" Grid.Row="11" x:Name="swSplitPayment" 
+                                Margin="{StaticResource SwitchMargin}" 
+                                IsToggled="{Binding isSplitPayment}" />
+
+                        <!--<syncfusion:SfPicker
+                        
+x:Name="picker" PickerHeight="300" PickerMode="Dialog" PickerWidth="300" 
+HeaderText="Select a Color"/>-->
+
+                        <local:CustomDatePicker Grid.ColumnSpan="2" Grid.Row="8" 
+                            x:Name="txtDataOrdinePicker" ColumnHeaderHeight="40" 
+                            HeaderBackgroundColor="{StaticResource NavigationBarBackgroundColor}"
+                            SelectedItemTextColor="{StaticResource NavigationBarBackgroundColor}"
+                            HeaderTextColor="White"
+                            HorizontalOptions="Center" PickerHeight="300" PickerMode="Dialog" PickerWidth="300" 
+                            VerticalOptions="Center" OkButtonClicked="txtDataOrdinePicker_OkButtonClicked" />
+                        <local:CustomDatePicker Grid.ColumnSpan="2" Grid.Row="9" 
+                            x:Name="txtDataContrattoPicker" ColumnHeaderHeight="40" 
+                            HeaderBackgroundColor="{StaticResource NavigationBarBackgroundColor}"
+                            SelectedItemTextColor="{StaticResource NavigationBarBackgroundColor}"
+                            HeaderTextColor="White"
+                            HorizontalOptions="Center" PickerHeight="300" PickerMode="Dialog" PickerWidth="300" 
+                            VerticalOptions="Center" OkButtonClicked="txtDataContrattoPicker_OkButtonClicked" />
+                        <local:CustomDatePicker Grid.ColumnSpan="2" Grid.Row="10" 
+                            x:Name="txtDataConvenzionePicker" ColumnHeaderHeight="40" 
+                            HeaderBackgroundColor="{StaticResource NavigationBarBackgroundColor}"
+                            SelectedItemTextColor="{StaticResource NavigationBarBackgroundColor}"
+                            HeaderTextColor="White"
+                            HorizontalOptions="Center" PickerHeight="300" PickerMode="Dialog" PickerWidth="300" 
+                            VerticalOptions="Center" OkButtonClicked="txtDataConvenzionePicker_OkButtonClicked" />
+                        <local:CustomDatePicker Grid.ColumnSpan="2" Grid.Row="11" 
+                            x:Name="txtDataRicezionePicker" ColumnHeaderHeight="40" 
+                            HeaderBackgroundColor="{StaticResource NavigationBarBackgroundColor}"
+                            SelectedItemTextColor="{StaticResource NavigationBarBackgroundColor}"
+                            HeaderTextColor="White"
+                            HorizontalOptions="Center" PickerHeight="300" PickerMode="Dialog" PickerWidth="300" 
+                            VerticalOptions="Center" OkButtonClicked="txtDataRicezionePicker_OkButtonClicked" />
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

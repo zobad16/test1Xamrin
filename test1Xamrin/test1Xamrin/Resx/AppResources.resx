@@ -1,0 +1,924 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlertLabelMessaggio" xml:space="preserve">
+    <value>Message</value>
+    <comment>alert label messaggio</comment>
+  </data>
+  <data name="CellaClienteParolaRecapito" xml:space="preserve">
+    <value>Contact</value>
+    <comment>cella cliente parola recapito</comment>
+  </data>
+  <data name="CellaDocumentoParolaDel" xml:space="preserve">
+    <value>of</value>
+    <comment>cella documenti parola del</comment>
+  </data>
+  <data name="CellaDocumentoParolaFattura" xml:space="preserve">
+    <value>invoice</value>
+    <comment>cella documenti parola fattura</comment>
+  </data>
+  <data name="CellaDocumentoParolaGenerata" xml:space="preserve">
+    <value>Generated</value>
+    <comment>cella documenti parola generata</comment>
+  </data>
+  <data name="CellaDocumentoParolaRicevuta" xml:space="preserve">
+    <value>receipt</value>
+    <comment>cella documenti parola ricevuta</comment>
+  </data>
+  <data name="ChiamateWSGetCheckVersioneMessaggioDeviceNonAbilitata" xml:space="preserve">
+    <value>Device not enabled</value>
+    <comment>chiamate ws metodo getCheckVersione messaggio device non abilitata</comment>
+  </data>
+  <data name="ChiamateWSGetCheckVersioneMessaggioVersInfACons" xml:space="preserve">
+    <value>Current version lower than allowed: download version</value>
+    <comment>chiamate ws metodo getCheckVersione messaggio versione inferiore a consentita</comment>
+  </data>
+  <data name="ChiamateWSGetCheckVersioneMessaggioVersSupACons" xml:space="preserve">
+    <value>Current version higher than allowed: download version</value>
+    <comment>chiamate ws metodo getCheckVersione messaggio versione superiore a consentita</comment>
+  </data>
+  <data name="ChiamateWSPostRegistraDeviceMessaggioErroreConnessioneDB" xml:space="preserve">
+    <value>Error in connecting to the database</value>
+    <comment>chiamate ws metodo postRegistraDevice messaggio errore connessione al database</comment>
+  </data>
+  <data name="ChiamateWSPostRegistraDeviceMessaggioErroreSalvataggioDevice" xml:space="preserve">
+    <value>Error in saving the device</value>
+    <comment>chiamate ws metodo postRegistraDevice messaggio parametro errore salvataggio device</comment>
+  </data>
+  <data name="ChiamateWSPostRegistraDeviceMessaggioParametroDeviceNullo" xml:space="preserve">
+    <value>Device parameter is null</value>
+    <comment>chiamate ws metodo postRegistraDevice messaggio parametro device nullo</comment>
+  </data>
+  <data name="DatePickerParolaAnno" xml:space="preserve">
+    <value>Year</value>
+    <comment>datepicker parola anno</comment>
+  </data>
+  <data name="DatePickerParolaGiorno" xml:space="preserve">
+    <value>Day</value>
+    <comment>datepicker parola giorno</comment>
+  </data>
+  <data name="DatePickerParolaMese" xml:space="preserve">
+    <value>Month</value>
+    <comment>datepicker parola mese</comment>
+  </data>
+  <data name="DatePickerTitolo" xml:space="preserve">
+    <value>Pick date</value>
+    <comment>datepicker titolo</comment>
+  </data>
+  <data name="DescrRichiestaFatturaNum" xml:space="preserve">
+    <value>Request n.</value>
+    <comment>descrizione richiesta fattura numero</comment>
+  </data>
+  <data name="FormClientiCellLabelCodiceFiscale" xml:space="preserve">
+    <value>Fiscal code:</value>
+    <comment>form clienti cell label codice fiscale</comment>
+  </data>
+  <data name="FormClientiCellLabelPIVA" xml:space="preserve">
+    <value>Tax ID number:</value>
+    <comment>form clienti cell label partita iva</comment>
+  </data>
+  <data name="FormClientiMessaggioQRNonStandard" xml:space="preserve">
+    <value>QR is not standard </value>
+    <comment>form clienti messaggio QR non standard</comment>
+  </data>
+  <data name="FormClientiTestoSelezionaProvincia" xml:space="preserve">
+    <value>Select county</value>
+    <comment>form clienti testo seleziona provincia</comment>
+  </data>
+  <data name="FormClientiTestoSelezionaStato" xml:space="preserve">
+    <value>Select country</value>
+    <comment>form clienti testo seleziona stato</comment>
+  </data>
+  <data name="FormDettClienteLabelAltriDati" xml:space="preserve">
+    <value>Other data</value>
+    <comment>form dettaglio cliente label altri dati</comment>
+  </data>
+  <data name="FormDettClienteLblCAP" xml:space="preserve">
+    <value>Zip code</value>
+    <comment>label CAP</comment>
+  </data>
+  <data name="FormDettClienteLblCIG" xml:space="preserve">
+    <value>CIG</value>
+    <comment>label CIG</comment>
+  </data>
+  <data name="FormDettClienteLblCodFisc" xml:space="preserve">
+    <value>Fiscal code</value>
+    <comment>label codice fiscale</comment>
+  </data>
+  <data name="FormDettClienteLblCodiceStato" xml:space="preserve">
+    <value>State code</value>
+    <comment>label codice stato</comment>
+  </data>
+  <data name="FormDettClienteLblComune" xml:space="preserve">
+    <value>City</value>
+    <comment>label comune</comment>
+  </data>
+  <data name="FormDettClienteLblCUP" xml:space="preserve">
+    <value>CUP</value>
+    <comment>label CUP</comment>
+  </data>
+  <data name="FormDettClienteLblDichiarazioneIntento" xml:space="preserve">
+    <value>Intention declaration</value>
+    <comment>label dichiarazione d'intento</comment>
+  </data>
+  <data name="FormDettClienteLblEmail" xml:space="preserve">
+    <value>Email</value>
+    <comment>label email</comment>
+  </data>
+  <data name="FormDettClienteLblEmailContatto" xml:space="preserve">
+    <value>Contact email</value>
+    <comment>label email contatto</comment>
+  </data>
+  <data name="FormDettClienteLblIndirizzo" xml:space="preserve">
+    <value>Address</value>
+    <comment>label indirizzo</comment>
+  </data>
+  <data name="FormDettClienteLblIsPrivate" xml:space="preserve">
+    <value>Private</value>
+    <comment>label privato</comment>
+  </data>
+  <data name="FormDettClienteLblNomeContatto" xml:space="preserve">
+    <value>Contact name</value>
+    <comment>label nome contatto</comment>
+  </data>
+  <data name="FormDettClienteLblPA" xml:space="preserve">
+    <value>Public administration</value>
+    <comment>label pubblica amministrazione</comment>
+  </data>
+  <data name="FormDettClienteLblPec" xml:space="preserve">
+    <value>Pec</value>
+    <comment>label pec</comment>
+  </data>
+  <data name="FormDettClienteLblPIVA" xml:space="preserve">
+    <value>Tax ID Number</value>
+    <comment>label partita iva</comment>
+  </data>
+  <data name="FormDettClienteLblProvincia" xml:space="preserve">
+    <value>County</value>
+    <comment>label provincia</comment>
+  </data>
+  <data name="FormDettClienteLblRagioneSociale" xml:space="preserve">
+    <value>Company name</value>
+    <comment>label ragione sociale</comment>
+  </data>
+  <data name="FormDettClienteLblSID" xml:space="preserve">
+    <value>Destination code</value>
+    <comment>label SID</comment>
+  </data>
+  <data name="FormDettClienteLblSoggettoARitenuta" xml:space="preserve">
+    <value>Liable for tax deduction</value>
+    <comment>label soggetto a ritenuta</comment>
+  </data>
+  <data name="FormDettClienteLblSplitPayment" xml:space="preserve">
+    <value>Split payment</value>
+    <comment>label split payment</comment>
+  </data>
+  <data name="FormDettClienteLblStato" xml:space="preserve">
+    <value>Country</value>
+    <comment>label stato</comment>
+  </data>
+  <data name="FormDettClienteLblTelefono" xml:space="preserve">
+    <value>Telephone</value>
+    <comment>label telefono</comment>
+  </data>
+  <data name="FormDettClienteLblTelefonoContatto" xml:space="preserve">
+    <value>Contact telephone</value>
+    <comment>label telefono contatto</comment>
+  </data>
+  <data name="FormDettClienteLblTipoAliquota" xml:space="preserve">
+    <value>Default tax code</value>
+    <comment>label tipo aliquota IVA di default</comment>
+  </data>
+  <data name="FormDettClienteMessaggioErroreClienteSuServer" xml:space="preserve">
+    <value>Error in connecting to the server. It is not possible to determine if the applicant already exists on the server.</value>
+    <comment>form profilo messaggio errore cliente su server</comment>
+  </data>
+  <data name="FormDettClienteMessaggioErroreControlloNumScontrSuServer" xml:space="preserve">
+    <value>Error in connecting to the server. It is not possible to determine if the receipt number is already used in another invoice request to the same gas station</value>
+    <comment>form nuovo documento messaggio errore check numero scontrino già presente sullo stesso benzinaio su server</comment>
+  </data>
+  <data name="FormDettClienteMessaggioPresentiCampiInErrore" xml:space="preserve">
+    <value>There are fields in state of errore or required fields are missing, scroll the page down vertically.</value>
+    <comment>form dettaglio cliente messaggio presenti campi in errore o mancano campi obbligatori</comment>
+  </data>
+  <data name="FormDettClienteMsgImpossCancRichiedenteEsistonoRichFatt" xml:space="preserve">
+    <value>It is not possible to delete applicant because invoice requests with it have already been inserted</value>
+    <comment>form dettaglio cliente messaggio impossibile cancellare richiedente perchè esistono richieste di fattura</comment>
+  </data>
+  <data name="FormDettClienteMsgImpossModPIVAEsistonoRichFatt" xml:space="preserve">
+    <value>It is not possible to edit tax ID number because invoice requests with it have already been inserted</value>
+    <comment>form dettaglio cliente messaggio impossibile modificare partita IVA perchè esistono richieste di fattura</comment>
+  </data>
+  <data name="FormDettClienteMsgPartitaIvaGiaPres" xml:space="preserve">
+    <value>Tax ID Number already exists.</value>
+    <comment>form dettaglio cliente messaggio partita iva già presente</comment>
+  </data>
+  <data name="FormDettClienteValidazioniCAP" xml:space="preserve">
+    <value>Zip code is required.</value>
+    <comment>validazioni form dettaglio cliente CAP</comment>
+  </data>
+  <data name="FormDettClienteValidazioniCIG" xml:space="preserve">
+    <value>CIG must be at most 15 characters long.</value>
+    <comment>validazioni form dettaglio cliente CIG</comment>
+  </data>
+  <data name="FormDettClienteValidazioniCodiceStato" xml:space="preserve">
+    <value>State code is required.</value>
+    <comment>validazioni form dettaglio cliente codice stato</comment>
+  </data>
+  <data name="FormDettClienteValidazioniComune" xml:space="preserve">
+    <value>City is required.</value>
+    <comment>validazioni form dettaglio cliente comune</comment>
+  </data>
+  <data name="FormDettClienteValidazioniCUP" xml:space="preserve">
+    <value>CUP must be at most 15 characters long.</value>
+    <comment>validazioni form dettaglio cliente CUP</comment>
+  </data>
+  <data name="FormDettClienteValidazioniEmail" xml:space="preserve">
+    <value>Email is required.</value>
+    <comment>validazioni form dettaglio cliente email</comment>
+  </data>
+  <data name="FormDettClienteValidazioniEmail2" xml:space="preserve">
+    <value>Email not valid.</value>
+    <comment>validazioni form dettaglio cliente email</comment>
+  </data>
+  <data name="FormDettClienteValidazioniFiscalCode1" xml:space="preserve">
+    <value>Fiscal code is required.</value>
+    <comment>validazioni form dettaglio cliente codice fiscale 1</comment>
+  </data>
+  <data name="FormDettClienteValidazioniFiscalCode2" xml:space="preserve">
+    <value>Fiscal code must be 11 or 16 characters long.</value>
+    <comment>validazioni form dettaglio cliente codice fiscale 2</comment>
+  </data>
+  <data name="FormDettClienteValidazioniFiscalCode3" xml:space="preserve">
+    <value>If fiscal code is 11 characters long, it must consist only of digits.</value>
+    <comment>validazioni form dettaglio cliente codice fiscale 3</comment>
+  </data>
+  <data name="FormDettClienteValidazioniIndirizzo" xml:space="preserve">
+    <value>Address is required.</value>
+    <comment>validazioni form dettaglio cliente indirizzo</comment>
+  </data>
+  <data name="FormDettClienteValidazioniPec" xml:space="preserve">
+    <value>Pec is required.</value>
+    <comment>validazioni form dettaglio cliente pec</comment>
+  </data>
+  <data name="FormDettClienteValidazioniPec2" xml:space="preserve">
+    <value>Pec not valid.</value>
+    <comment>validazioni form dettaglio cliente pec</comment>
+  </data>
+  <data name="FormDettClienteValidazioniPIVA1" xml:space="preserve">
+    <value>Tax ID number is required.</value>
+    <comment>validazioni form dettaglio cliente partita iva 1</comment>
+  </data>
+  <data name="FormDettClienteValidazioniPIVA2" xml:space="preserve">
+    <value>Tax ID number must be 11 character long.</value>
+    <comment>validazioni form dettaglio cliente partita iva 2</comment>
+  </data>
+  <data name="FormDettClienteValidazioniPIVA2Vers16" xml:space="preserve">
+    <value>Tax ID number must be 16 character long.</value>
+    <comment>validazioni form dettaglio cliente partita iva 2 versione 16</comment>
+  </data>
+  <data name="FormDettClienteValidazioniPIVA3" xml:space="preserve">
+    <value>Tax ID number must consist only of digits.</value>
+    <comment>validazioni form dettaglio cliente partita iva 3</comment>
+  </data>
+  <data name="FormDettClienteValidazioniProv" xml:space="preserve">
+    <value>County is required.</value>
+    <comment>validazioni form dettaglio cliente provincia</comment>
+  </data>
+  <data name="FormDettClienteValidazioniRagSoc" xml:space="preserve">
+    <value>Company name is required.</value>
+    <comment>validazioni form dettaglio cliente ragione sociale</comment>
+  </data>
+  <data name="FormDettClienteValidazioniSID1" xml:space="preserve">
+    <value>Destination code is required or invalid length (6 for public admnistration, 7 for private).</value>
+    <comment>validazioni form dettaglio cliente SID 1</comment>
+  </data>
+  <data name="FormDettClienteValidazioniSID2" xml:space="preserve">
+    <value>If it is a public administration destination code must be 6 characters long, otherwise 7 characters long.</value>
+    <comment>validazioni form dettaglio cliente SID 2</comment>
+  </data>
+  <data name="FormDettClienteValidazioniStato" xml:space="preserve">
+    <value>Country is required.</value>
+    <comment>validazioni form dettaglio cliente stato</comment>
+  </data>
+  <data name="FormDocumentiBtnCerca" xml:space="preserve">
+    <value>Search</value>
+    <comment>form documenti bottone cerca</comment>
+  </data>
+  <data name="FormDocumentiLabelSceltaBenzinaio" xml:space="preserve">
+    <value>Gas station</value>
+    <comment>form documenti label scelta benzinaio</comment>
+  </data>
+  <data name="FormDocumentiLblAData" xml:space="preserve">
+    <value>To date</value>
+    <comment>form documenti label a data</comment>
+  </data>
+  <data name="FormDocumentiLblDaData" xml:space="preserve">
+    <value>From date</value>
+    <comment>form documenti label da data</comment>
+  </data>
+  <data name="FormDocumentiLblDocApprovati" xml:space="preserve">
+    <value>Approved</value>
+    <comment>form documenti label documenti approvati</comment>
+  </data>
+  <data name="FormDocumentiLblDocDaApprovare" xml:space="preserve">
+    <value>To approve</value>
+    <comment>form documenti label documenti da approvare</comment>
+  </data>
+  <data name="FormDocumentiLblDocRespinti" xml:space="preserve">
+    <value>Rejected</value>
+    <comment>form documenti label documenti respinti</comment>
+  </data>
+  <data name="FormDocumentiLblDocTutti" xml:space="preserve">
+    <value>All requests</value>
+    <comment>form documenti label documenti tutti</comment>
+  </data>
+  <data name="FormDocumentiParolaRespinta" xml:space="preserve">
+    <value>Rejected</value>
+    <comment>form documenti parola respinta</comment>
+  </data>
+  <data name="FormDocumentiPlaceholderDate" xml:space="preserve">
+    <value>Select date</value>
+    <comment>form documenti placeholder date</comment>
+  </data>
+  <data name="FormMenuBottone1" xml:space="preserve">
+    <value>REGISTRATIONx</value>
+    <comment>form menu button 1</comment>
+  </data>
+  <data name="FormMenuBottone2" xml:space="preserve">
+    <value>INVOICE REQUEST</value>
+    <comment>form menu button 2</comment>
+  </data>
+  <data name="FormMenuBottone2Vers2" xml:space="preserve">
+    <value>REQUESTS LIST</value>
+    <comment>form menu button 2</comment>
+  </data>
+  <data name="FormMenuBottone3" xml:space="preserve">
+    <value>CLOSE</value>
+    <comment>form menu button 3</comment>
+  </data>
+  <data name="FormMenuMessaggioErroreCameraNonDisp" xml:space="preserve">
+    <value>Camera not available</value>
+    <comment>form menu messaggio errore camera non disponibile</comment>
+  </data>
+  <data name="FormMenuMessaggioErroreCameraOccupata" xml:space="preserve">
+    <value>Camera is busy. Try again</value>
+    <comment>form menu messaggio errore camera occupata</comment>
+  </data>
+  <data name="FormMenuMessaggioFotoEsegCorrettamente" xml:space="preserve">
+    <value>Picture taken correctl: size = </value>
+    <comment>form menu messaggio foto eseguita correttamente</comment>
+  </data>
+  <data name="FormMenuMessaggioOperazioneAnnullata" xml:space="preserve">
+    <value>Operation cancelled</value>
+    <comment>form menu messaggio operazione annullata</comment>
+  </data>
+  <data name="FormNuovoDocDomandaSovrasciviImmagine" xml:space="preserve">
+    <value>Picture already present, do you wish to overwrite it?</value>
+    <comment>form nuovo documento domanda sovrascrittura immagine</comment>
+  </data>
+  <data name="FormNuovoDocDomandaSovrasciviQR" xml:space="preserve">
+    <value>QR already present, do you wish to overwrite it?</value>
+    <comment>form nuovo documento domanda sovrascrittura QR</comment>
+  </data>
+  <data name="FormNuovoDocLabelSceltaBenzinaio" xml:space="preserve">
+    <value>Gas station</value>
+    <comment>form nuovo documento label scelta benzinaio</comment>
+  </data>
+  <data name="FormNuovoDocLabelSelCliente" xml:space="preserve">
+    <value>Choose registration</value>
+    <comment>form nuovo documento label seleziona cliente</comment>
+  </data>
+  <data name="FormNuovoDocLabelSelModPagamento" xml:space="preserve">
+    <value>Choose payment method</value>
+    <comment>form nuovo documento label seleziona modalità pagamento</comment>
+  </data>
+  <data name="FormNuovoDocLblCliente" xml:space="preserve">
+    <value>Applicant</value>
+    <comment>form nuovo documento label cliente</comment>
+  </data>
+  <data name="FormNuovoDocLblCodiceProdotto" xml:space="preserve">
+    <value>Product</value>
+    <comment>form nuovo documento label codice prodotto</comment>
+  </data>
+  <data name="FormNuovoDocLblFoto2Scontrino" xml:space="preserve">
+    <value>Receipt picture 2</value>
+    <comment>form nuovo documento label foto 2 scontrino</comment>
+  </data>
+  <data name="FormNuovoDocLblFoto3Scontrino" xml:space="preserve">
+    <value>Receipt picture 3</value>
+    <comment>form nuovo documento label foto 3 scontrino</comment>
+  </data>
+  <data name="FormNuovoDocLblKM" xml:space="preserve">
+    <value>KM</value>
+    <comment>form nuovo documento label KM</comment>
+  </data>
+  <data name="FormNuovoDocLblModPagamento" xml:space="preserve">
+    <value>Payment type</value>
+    <comment>form nuovo documento label modalità pagamento</comment>
+  </data>
+  <data name="FormNuovoDocLblNoteScontrino" xml:space="preserve">
+    <value>Notes</value>
+    <comment>form nuovo documento label note scontrino</comment>
+  </data>
+  <data name="FormNuovoDocLblNumScontrino" xml:space="preserve">
+    <value>Receipt nr.</value>
+    <comment>form nuovo documento label numero scontrino</comment>
+  </data>
+  <data name="FormNuovoDocLblPompaScontrino" xml:space="preserve">
+    <value>Pump n.</value>
+    <comment>form nuovo documento label numero pompa scontrino</comment>
+  </data>
+  <data name="FormNuovoDocLblPrezzoUnitario" xml:space="preserve">
+    <value>Unit price</value>
+    <comment>form nuovo documento label prezzo unitario</comment>
+  </data>
+  <data name="FormNuovoDocLblPuntoVenditaScontrino" xml:space="preserve">
+    <value>Point of sale</value>
+    <comment>form nuovo documento label punto vendita scontrino</comment>
+  </data>
+  <data name="FormNuovoDocLblQRScontrino" xml:space="preserve">
+    <value>Read receipt QR</value>
+    <comment>form nuovo documento label QR scontrino</comment>
+  </data>
+  <data name="FormNuovoDocLblQuantita" xml:space="preserve">
+    <value>Supplied quantity</value>
+    <comment>form nuovo documento label quantità</comment>
+  </data>
+  <data name="FormNuovoDocLblReceiptDate" xml:space="preserve">
+    <value>Receipt date</value>
+    <comment>form nuovo documento label data scontrino</comment>
+  </data>
+  <data name="FormNuovoDocLblTarga" xml:space="preserve">
+    <value>Plate</value>
+    <comment>form nuovo documento label targa</comment>
+  </data>
+  <data name="FormNuovoDocLblTerminaleScontrino" xml:space="preserve">
+    <value>Terminal n.</value>
+    <comment>form nuovo documento label numero terminalescontrino</comment>
+  </data>
+  <data name="FormNuovoDocLblTotPagato" xml:space="preserve">
+    <value>Product total</value>
+    <comment>form nuovo documento label totale prodotto</comment>
+  </data>
+  <data name="FormNuovoDocMessaggioNessunaImmPresDaCancellare" xml:space="preserve">
+    <value>No image to delete</value>
+    <comment>form nuovo documento messaggio nessuna immagine presente da cancellare</comment>
+  </data>
+  <data name="FormNuovoDocMessaggioNessunaImmPresDaVisualizzare" xml:space="preserve">
+    <value>No image to view</value>
+    <comment>form nuovo documento messaggio nessuna immagine presente da visualizzare</comment>
+  </data>
+  <data name="FormNuovoDocMessaggioNessunQRPresDaCancellare" xml:space="preserve">
+    <value>No QR to delete</value>
+    <comment>form nuovo documento messaggio nessun QR presente da cancellare</comment>
+  </data>
+  <data name="FormNuovoDocMessaggioNumScontrinoGiaPresenteBenzinaio" xml:space="preserve">
+    <value>Receipt number already used in another invoice request to the same gas station</value>
+    <comment>form nuovo documento messaggio numero scontrino già presente sul benzinaio</comment>
+  </data>
+  <data name="FormNuovoDocMsgInserireAlmenoUnCliente" xml:space="preserve">
+    <value>At least one tax ID number must be registered before proceeding with the request of an invoice</value>
+    <comment>form nuovo documento messaggio inserire almeno un cliente</comment>
+  </data>
+  <data name="FormNuovoDocMsgIntrodurreBenzinaioPrimaSelModPag" xml:space="preserve">
+    <value>Insert gas station before selecting payment method</value>
+    <comment>form nuovo documento introdurre benzinaio prima di selezionare la modalità di pagamento</comment>
+  </data>
+  <data name="FormNuovoDocMsgIntrodurreBenzinaioPrimaSelProdotto" xml:space="preserve">
+    <value>Insert gas station before selecting the product</value>
+    <comment>form nuovo documento introdurre benzinaio prima di selezionare il prodotto</comment>
+  </data>
+  <data name="FormNuovoDocMsgIntrodurreRichiedentePrimaSelBenzinaio" xml:space="preserve">
+    <value>Insert applicant before selecting the gas station</value>
+    <comment>form nuovo documento introdurre richiedente prima di selezionare benzinaio</comment>
+  </data>
+  <data name="FormNuovoDocMsgIntrodurreTotalePrimaSelProdotto" xml:space="preserve">
+    <value>Insert total amount before selecting the product</value>
+    <comment>form nuovo documento introdurre l'importo prima di selezionare il prodotto</comment>
+  </data>
+  <data name="FormNuovoDocPlaceholderDate" xml:space="preserve">
+    <value>Select date</value>
+    <comment>form nuovo documento placeholder date</comment>
+  </data>
+  <data name="FormNuovoDocPlaceholderKM" xml:space="preserve">
+    <value>KM</value>
+    <comment>form nuovo documento placeholder KM</comment>
+  </data>
+  <data name="FormNuovoDocPlaceholderTarga" xml:space="preserve">
+    <value>Plate</value>
+    <comment>form nuovo documento placeholder targa</comment>
+  </data>
+  <data name="FormNuovoDocSeparatoreLblCarburante" xml:space="preserve">
+    <value>Purchases product</value>
+    <comment>form nuovo documento separatore label carburante</comment>
+  </data>
+  <data name="FormNuovoDocTapparePerInsModPag" xml:space="preserve">
+    <value>Click to select</value>
+    <comment>form nuovo documento tappare per inserire modalità pagamento</comment>
+  </data>
+  <data name="FormNuovoDocTestoSelezionaBenzinaio" xml:space="preserve">
+    <value>Sel. gas station</value>
+    <comment>form nuovo doc testo seleziona benzinaio</comment>
+  </data>
+  <data name="FormNuovoDocUsareListaPerInsModCodiceProdotto" xml:space="preserve">
+    <value>Click to select</value>
+    <comment>form nuovo documento usare lista per inserire codice prodotto</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniBenzinaio" xml:space="preserve">
+    <value>Gas station is required.</value>
+    <comment>form nuovo documento validazioni campo benzinaio</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniCliente" xml:space="preserve">
+    <value>Customer is required.</value>
+    <comment>form nuovo documento validazioni campo cliente</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniDataScontrino" xml:space="preserve">
+    <value>Receipt date is required.</value>
+    <comment>form nuovo documento validazioni campo data scontrino</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniFotoScontrino" xml:space="preserve">
+    <value>A picture of the receipt must be taken.</value>
+    <comment>form nuovo documento validazioni campo foto scontrino</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniNoteScontrino" xml:space="preserve">
+    <value>Receipt note is required.</value>
+    <comment>form nuovo documento validazioni campo note scontrino</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniNumScontrino" xml:space="preserve">
+    <value>Receipt number is required.</value>
+    <comment>form nuovo documento validazioni campo numero scontrino</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniOraScontrino" xml:space="preserve">
+    <value>Receipt time is required.</value>
+    <comment>form nuovo documento validazioni campo ora scontrino</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniPompaScontrino" xml:space="preserve">
+    <value>Receipt pump number is required.</value>
+    <comment>form nuovo documento validazioni campo pompa scontrino</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniProdotto" xml:space="preserve">
+    <value>Product is required.</value>
+    <comment>form nuovo documento validazioni campo codice prodotto</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniPuntoVenditaScontrino" xml:space="preserve">
+    <value>Receipt point of sale is required.</value>
+    <comment>form nuovo documento validazioni campo punto vendita scontrino</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniQRScontrino" xml:space="preserve">
+    <value>Receipt QR is required.</value>
+    <comment>form nuovo documento validazioni campo QR scontrino</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniTarga" xml:space="preserve">
+    <value>Plate is required.</value>
+    <comment>form nuovo documento validazioni campo targa</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniTargaLunghezza" xml:space="preserve">
+    <value>Plate must be at least 3 characters long.</value>
+    <comment>form nuovo documento validazioni campo targa</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniTerminaleScontrino" xml:space="preserve">
+    <value>Receipt terminal number is required.</value>
+    <comment>form nuovo documento validazioni campo terminale scontrino</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniTipoPag" xml:space="preserve">
+    <value>Payment type is required.</value>
+    <comment>form nuovo documento validazioni campo tipo pagamento</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniTotale" xml:space="preserve">
+    <value>Total amount is required.</value>
+    <comment>form nuovo documento validazioni campo totale pagato</comment>
+  </data>
+  <data name="FormNuovoDocValidazioniTotaleMaggZero" xml:space="preserve">
+    <value>Total amount must be greater than zero.</value>
+    <comment>form nuovo documento validazioni campo totale pagato maggiore zero</comment>
+  </data>
+  <data name="FormPrezziLblSelfService" xml:space="preserve">
+    <value>Self:</value>
+    <comment>label prezzo self service</comment>
+  </data>
+  <data name="FormPrezziLblServito" xml:space="preserve">
+    <value>Served:</value>
+    <comment>label prezzo servito</comment>
+  </data>
+  <data name="FormPrezziLblServitoVersioneNoSelf" xml:space="preserve">
+    <value>Price:</value>
+    <comment>label prezzo servito versione no self</comment>
+  </data>
+  <data name="FormSceltaProdottoLblTitolo" xml:space="preserve">
+    <value>Click on one of the buttons to select</value>
+    <comment>form scelta prodotto label titolo</comment>
+  </data>
+  <data name="FormSincroBottoneAnteprimaFattura" xml:space="preserve">
+    <value>Invoice preview</value>
+    <comment>form sincronizzazione bottone anteprima fattura</comment>
+  </data>
+  <data name="FormSincroBottoneEsci" xml:space="preserve">
+    <value>Close</value>
+    <comment>form sincronizzazione bottone esci</comment>
+  </data>
+  <data name="FormSincroBottoneSincroLabelInvia" xml:space="preserve">
+    <value>Send</value>
+    <comment>form sincronizzazione bottone sincronizza label invia</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelDataContratto" xml:space="preserve">
+    <value>Contract date</value>
+    <comment>form sincronizzazione label data contratto</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelDataConvenzione" xml:space="preserve">
+    <value>Agreement date</value>
+    <comment>form sincronizzazione label data convenzione</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelDataOrdine" xml:space="preserve">
+    <value>Order date</value>
+    <comment>form sincronizzazione label data ordine</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelDataRicezione" xml:space="preserve">
+    <value>Reception date</value>
+    <comment>form sincronizzazione label data ricezione</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelNomeDitta" xml:space="preserve">
+    <value>Company name</value>
+    <comment>form sincronizzazione label nome ditta</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelNumContratto" xml:space="preserve">
+    <value>Contract number</value>
+    <comment>form sincronizzazione label numero contratto</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelNumConvenzione" xml:space="preserve">
+    <value>Agreement number</value>
+    <comment>form sincronizzazione label numero convenzione</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelNumOrdine" xml:space="preserve">
+    <value>Order number</value>
+    <comment>form sincronizzazione label numero ordine</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelNumRicezione" xml:space="preserve">
+    <value>Reception number</value>
+    <comment>form sincronizzazione label numero ricezione</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelProdotto" xml:space="preserve">
+    <value>Product</value>
+    <comment>form sincronizzazione label prodotto</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelRecapito" xml:space="preserve">
+    <value>Contact</value>
+    <comment>form sincronizzazione label recapito</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelRiepilgoRichiesta" xml:space="preserve">
+    <value>Request review</value>
+    <comment>form sincronizzazione label riepilogo richiesta</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelTarga" xml:space="preserve">
+    <value>Plate</value>
+    <comment>form sincronizzazione label targa</comment>
+  </data>
+  <data name="FormSincroRiepilogoLabelTotalePagato" xml:space="preserve">
+    <value>Total amount</value>
+    <comment>form sincronizzazione label totale pagato</comment>
+  </data>
+  <data name="FormWSChiamateMetodoDevEnabledMsgErroreGenerico" xml:space="preserve">
+    <value>Generic error</value>
+    <comment>form WS chiamate metodo getIsDeviceEnabled messaggio errore generico</comment>
+  </data>
+  <data name="FormWSChiamateMetodoDevEnabledMsgErroreHTTP" xml:space="preserve">
+    <value>Http code execution error: </value>
+    <comment>form WS chiamate metodo getIsDeviceEnabled messaggio errore HTTP</comment>
+  </data>
+  <data name="MessaggioConfermaCancellazione" xml:space="preserve">
+    <value>Do you confirm cancellation?</value>
+    <comment>messaggio conferma cancellazione</comment>
+  </data>
+  <data name="NuovoHudColoratoMessaggioAttesa" xml:space="preserve">
+    <value>Getting information from server</value>
+    <comment>nuovo hud colorato messaggio attesa</comment>
+  </data>
+  <data name="NuovoHudColoratoMessaggioSalvataggio" xml:space="preserve">
+    <value>Saving</value>
+    <comment>nuovo hud colorato messaggio salvataggio</comment>
+  </data>
+  <data name="SearchbarClientiPlaceholder" xml:space="preserve">
+    <value>Search</value>
+    <comment>searchbar clienti placeholder</comment>
+  </data>
+  <data name="SearchbarDocumentiPlaceholder" xml:space="preserve">
+    <value>Filter</value>
+    <comment>searchbar documenti placeholder</comment>
+  </data>
+  <data name="SincroConnessioneInternet" xml:space="preserve">
+    <value>Internet connection is required</value>
+    <comment>connessione internet</comment>
+  </data>
+  <data name="SincroMessErrore" xml:space="preserve">
+    <value>Error in sending data to the server: system will try again next time application will be opened</value>
+    <comment>messaggio errore sincro</comment>
+  </data>
+  <data name="TestoBtnAnnulla" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>bottone annulla</comment>
+  </data>
+  <data name="TestoBtnAnnullaDocumento" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>bottone annulla</comment>
+  </data>
+  <data name="TestoBtnChiudiDocumento" xml:space="preserve">
+    <value>Close</value>
+    <comment>bottone chiudi</comment>
+  </data>
+  <data name="TestoBtnSalva" xml:space="preserve">
+    <value>Save</value>
+    <comment>bottone salva</comment>
+  </data>
+  <data name="TestoBtnSalvaDocumento" xml:space="preserve">
+    <value>Save</value>
+    <comment>bottone salva</comment>
+  </data>
+  <data name="TitoloFormBenzinai" xml:space="preserve">
+    <value>Gas station selection</value>
+    <comment>titolo form benzinai</comment>
+  </data>
+  <data name="TitoloFormClienti" xml:space="preserve">
+    <value>Registrations</value>
+    <comment>titolo form clienti</comment>
+  </data>
+  <data name="TitoloFormDettCliente" xml:space="preserve">
+    <value>Registration detail</value>
+    <comment>titolo form dettaglio cliente</comment>
+  </data>
+  <data name="TitoloFormDettClienteAltriDati" xml:space="preserve">
+    <value>Other data</value>
+    <comment>titolo form dettaglio cliente altri dati</comment>
+  </data>
+  <data name="TitoloFormDocumenti" xml:space="preserve">
+    <value>Request list</value>
+    <comment>titolo form documenti</comment>
+  </data>
+  <data name="TitoloFormModDoc" xml:space="preserve">
+    <value>Edit invoice request</value>
+    <comment>titolo form modifica documento</comment>
+  </data>
+  <data name="TitoloFormNuovoCliente" xml:space="preserve">
+    <value>New registration</value>
+    <comment>titolo form nuovo cliente</comment>
+  </data>
+  <data name="TitoloFormNuovoDoc" xml:space="preserve">
+    <value>New invoice request</value>
+    <comment>titolo form nuovo documento</comment>
+  </data>
+  <data name="TitoloFormNuovoDocAltriDati" xml:space="preserve">
+    <value>Other data</value>
+    <comment>titolo form nuovo documento altri dati</comment>
+  </data>
+  <data name="TitoloFormSceltaProdotti" xml:space="preserve">
+    <value>Products selection</value>
+    <comment>titolo form scelta prodotti</comment>
+  </data>
+  <data name="TitoloFormSceltaProvincia" xml:space="preserve">
+    <value>County selection</value>
+    <comment>titolo form scelta provincia</comment>
+  </data>
+  <data name="TitoloFormSceltaStato" xml:space="preserve">
+    <value>Country selection</value>
+    <comment>titolo form scelta stato</comment>
+  </data>
+  <data name="TitoloFormSincroRiepilogo" xml:space="preserve">
+    <value>Summary</value>
+    <comment>titolo form sincro</comment>
+  </data>
+  <data name="TitoloFormVisualizzazioneFoto" xml:space="preserve">
+    <value>Picture view</value>
+    <comment>titolo form visualizzazione foto</comment>
+  </data>
+  <data name="VerificaPartitaIVAMessaggioPIVAnonValida" xml:space="preserve">
+    <value>Tax ID number not valid</value>
+    <comment>verifica partita iva messaggio partita iva non valida</comment>
+  </data>
+  <data name="VerificaPartitaIVAMessaggioPIVAvalida" xml:space="preserve">
+    <value>Tax ID number valid</value>
+    <comment>verifica partita iva messaggio partita iva valida</comment>
+  </data>
+  <data name="VerificaPartitaIVAMessaggioSiDesideraSalvareDati" xml:space="preserve">
+    <value>Do you wish to save data</value>
+    <comment>verifica partita iva messaggio si desidera salvare dati</comment>
+  </data>
+  <data name="VerificaPartitaIVAMessaggioTrovatiSeguentiDati" xml:space="preserve">
+    <value>Following data have been found</value>
+    <comment>verifica partita iva messaggio trovati seguenti dati</comment>
+  </data>
+</root>

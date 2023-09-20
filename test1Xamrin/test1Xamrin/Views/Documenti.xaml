@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test1Xamrin.Documenti"
+             xmlns:local="clr-namespace:test1Xamrin"
+             xmlns:sys2="clr-namespace:xUtilityPCL"
+             xmlns:i18n="clr-namespace:test1Xamrin"
+             Background="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <sys2:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+            <OnIdiom x:TypeArguments="x:Double" x:Key="CarattereRidottoQuadrati" Phone="16" Tablet="16" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Spacing="0" Padding="10,5,10,5">
+            <!--<Grid HorizontalOptions="Center" VerticalOptions="Start" Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" 
+                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center" LineBreakMode="WordWrap" 
+                    Text="{i18n:Translate FormDocumentiLblDocTutti}" 
+                    FontSize="{StaticResource StandardLabelFontSize}" />
+                <StackLayout Grid.Row="1" Grid.Column="0" HeightRequest="70" WidthRequest="70" 
+                    VerticalOptions="Center" HorizontalOptions="Center" 
+                    BackgroundColor="{StaticResource MainAppColorGradient1}">
+                    <Label x:Name="lblDocTutti" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" 
+                        TextColor="White" FontSize="30" Text="" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding cmdQuadrato1}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                
+                <Label Grid.Row="0" Grid.Column="1" 
+                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center" LineBreakMode="WordWrap" 
+                    Text="{i18n:Translate FormDocumentiLblDocApprovati}" 
+                    FontSize="{StaticResource StandardLabelFontSize}" />
+                <StackLayout Grid.Row="1" Grid.Column="1" HeightRequest="70" WidthRequest="70" 
+                    VerticalOptions="Center" HorizontalOptions="Center" 
+                    BackgroundColor="{StaticResource MainAppColorGradient2}">
+                    <Label x:Name="lblDocApprovati" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" 
+                        TextColor="White" FontSize="30" Text="" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding cmdQuadrato2}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                
+                <Label Grid.Row="0" Grid.Column="2" 
+                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center" LineBreakMode="WordWrap" 
+                    Text="{i18n:Translate FormDocumentiLblDocDaApprovare}" 
+                    FontSize="{StaticResource StandardLabelFontSize}" />
+                <StackLayout Grid.Row="1" Grid.Column="2" HeightRequest="70" WidthRequest="70" 
+                    VerticalOptions="Center" HorizontalOptions="Center" 
+                    BackgroundColor="{StaticResource MainAppColorGradient3}">
+                    <Label x:Name="lblDocDaApprovare" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" 
+                        TextColor="White" FontSize="30" Text="" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding cmdQuadrato3}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>-->
+
+            <Grid ColumnSpacing="5" HorizontalOptions="Center" VerticalOptions="Start" Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="80" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" 
+                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center" LineBreakMode="WordWrap" 
+                    Text="{i18n:Translate FormDocumentiLblDocTutti}" 
+                    FontSize="{StaticResource CarattereRidottoQuadrati}" />
+                <StackLayout Grid.Row="1" Grid.Column="0" HeightRequest="60" WidthRequest="60" 
+                    VerticalOptions="Center" HorizontalOptions="Center" 
+                    BackgroundColor="{StaticResource MainAppColorGradient1}">
+                    <Label x:Name="lblDocTutti" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" 
+                        TextColor="White" FontSize="25" Text="" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding cmdQuadrato1}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <Label Grid.Row="0" Grid.Column="1" 
+                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center" LineBreakMode="WordWrap" 
+                    Text="{i18n:Translate FormDocumentiLblDocApprovati}" 
+                    FontSize="{StaticResource CarattereRidottoQuadrati}" />
+                <StackLayout Grid.Row="1" Grid.Column="1" HeightRequest="60" WidthRequest="60" 
+                    VerticalOptions="Center" HorizontalOptions="Center" 
+                    BackgroundColor="{StaticResource MainAppColorGradient2}">
+                    <Label x:Name="lblDocApprovati" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" 
+                        TextColor="White" FontSize="25" Text="" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding cmdQuadrato2}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <Label Grid.Row="0" Grid.Column="2" 
+                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center" LineBreakMode="WordWrap" 
+                    Text="{i18n:Translate FormDocumentiLblDocRespinti}" 
+                    FontSize="{StaticResource CarattereRidottoQuadrati}" />
+                <StackLayout Grid.Row="1" Grid.Column="2" HeightRequest="60" WidthRequest="60" 
+                    VerticalOptions="Center" HorizontalOptions="Center" 
+                    BackgroundColor="{StaticResource MainAppColorGradient3}">
+                    <Label x:Name="lblDocRespinti" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" 
+                        TextColor="White" FontSize="25" Text="" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding cmdQuadrato3}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <Label Grid.Row="0" Grid.Column="3" 
+                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center" LineBreakMode="WordWrap" 
+                    Text="{i18n:Translate FormDocumentiLblDocDaApprovare}" 
+                    FontSize="{StaticResource CarattereRidottoQuadrati}" />
+                <StackLayout Grid.Row="1" Grid.Column="3" HeightRequest="60" WidthRequest="60" 
+                    VerticalOptions="Center" HorizontalOptions="Center" 
+                    BackgroundColor="{StaticResource MainAppColorGradient4}">
+                    <Label x:Name="lblDocDaApprovare" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" 
+                        TextColor="White" FontSize="25" Text="" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding cmdQuadrato4}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Image x:Name="imgCollapseExpand" Source="CollapseIcon.png" 
+                    Aspect="AspectFit" HeightRequest="30" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="lblHideEventHandler" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout x:Name="slToHide" >
+                <Grid Margin="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <!--BENZINAIO-->
+                    <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                                 x:Name="slSceltaBenzinaio" HorizontalOptions="FillAndExpand" Orientation="Horizontal" >
+                        <Label x:Name="lblSceltaBenzinaio" VerticalOptions="Center" Margin="0,0,10,0"
+                               FontSize="{StaticResource StandardLabelFontSize}" 
+                               Text="{i18n:Translate FormDocumentiLabelSceltaBenzinaio}" />
+                        <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" IsEnabled="false"
+                                          x:Name="txtSceltaBenzinaio" LineEntryColor="{StaticResource MainAppColor}" 
+                                          HorizontalOptions="FillAndExpand" IsLineEntry="true" 
+                                          WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                          Text="{Binding myDaPassareBenzinaiWrapper.BenzinaioParam}" />
+                        <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                            <Image x:Name="imgMoreSceltaBenzinaio" Source="MoreIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SceltaBenzinaio_Tapped" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <!--DA DATA-->
+                    <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="{i18n:Translate FormDocumentiLblDaData}" />
+                    <StackLayout Grid.Row="1" Grid.Column="1">
+                        <sys2:CustomEntry Margin="5,0,0,0" x:Name="txtDataDA" IsEnabled="false" 
+                            WidthRequest="{StaticResource GeneralEntryWidth}" HorizontalOptions="Fill"
+                            FontSize="{StaticResource StandardLabelFontSize}" 
+                            VerticalOptions="Center" IsLineEntry="true" 
+                            Placeholder="{i18n:Translate FormDocumentiPlaceholderDate}" 
+                            LineEntryColor="{StaticResource NavigationBarBackgroundColor}"
+                            Text="{Binding DateFROMParam}">
+                        </sys2:CustomEntry>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="txtDataDA_Tapped" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image x:Name="imgPulisciDataDA" Source="ClearIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="lblPulisciDataDA_Tapped" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <!--A DATA-->
+                    <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="{i18n:Translate FormDocumentiLblAData}" />
+                    <StackLayout Grid.Row="2" Grid.Column="1">
+                        <sys2:CustomEntry Margin="5,0,0,0" x:Name="txtDataA" 
+                            WidthRequest="{StaticResource GeneralEntryWidth}" HorizontalOptions="Fill"
+                            IsEnabled="false" FontSize="{StaticResource StandardLabelFontSize}" 
+                            VerticalOptions="Center" IsLineEntry="true" 
+                            Placeholder="{i18n:Translate FormDocumentiPlaceholderDate}" 
+                            LineEntryColor="{StaticResource NavigationBarBackgroundColor}"
+                            Text="{Binding DateTOParam}">
+                        </sys2:CustomEntry>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="txtDataA_Tapped" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image x:Name="imgPulisciDataA" Source="ClearIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="lblPulisciDataA_Tapped" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Grid>
+
+                <Button x:Name="btnCerca" BorderRadius="0" Text="{i18n:Translate FormDocumentiBtnCerca}" 
+                    HorizontalOptions="Center" VerticalOptions="Center" 
+                    BackgroundColor="{StaticResource MainAppColor}" Style="{StaticResource MainButtonStyle}" 
+                    Command="{Binding cmdbtnCerca}" Margin="0,5,0,10" />
+            </StackLayout>
+
+            <StackLayout HeightRequest="40" Margin="0,0,0,10">
+                <SearchBar x:Name="searchBarDocumenti" SearchCommand="{Binding cmdSearchBar}" 
+                    Placeholder="{i18n:Translate SearchbarDocumentiPlaceholder}" 
+                    HeightRequest="40" BackgroundColor="White"
+                    SearchCommandParameter="{Binding Source={x:Reference searchBarDocumenti}, Path=Text}" >
+                    <SearchBar.Behaviors>
+                        <sys2:TextChangedBehavior />
+                    </SearchBar.Behaviors>
+                </SearchBar>
+            </StackLayout>
+
+            <ListView x:Name="listView" SeparatorVisibility="Default" BackgroundColor="White" 
+                SeparatorColor="#DFDFDF" HasUnevenRows="true" 
+                ItemsSource="{Binding myDocumentiItemsWrapper.DocumentiItems}">
+                <ListView.Behaviors>
+                    <sys2:EventToCommandBehavior EventName="ItemSelected" Command="{Binding cmdDocumenti}" 
+                                                 Converter="{StaticResource SelectedItemConverter}" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}"
+                                          Text="Delete" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+                            <local:DocumentoCell />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <local:CustomDatePicker x:Name="pickerDataDA" ColumnHeaderHeight="40" HorizontalOptions="Center" 
+                PickerHeight="300" PickerMode="Dialog" PickerWidth="300" VerticalOptions="Center" 
+                HeaderBackgroundColor="{StaticResource NavigationBarBackgroundColor}"
+                SelectedItemTextColor="{StaticResource NavigationBarBackgroundColor}"
+                HeaderTextColor="White"
+                OkButtonClicked="pickerDataDA_OkButtonClicked" />
+            <local:CustomDatePicker x:Name="pickerDataA" ColumnHeaderHeight="40" HorizontalOptions="Center" 
+                HeaderBackgroundColor="{StaticResource NavigationBarBackgroundColor}"
+                SelectedItemTextColor="{StaticResource NavigationBarBackgroundColor}"
+                HeaderTextColor="White"
+                PickerHeight="300" PickerMode="Dialog" PickerWidth="300" VerticalOptions="Center" 
+                OkButtonClicked="pickerDataA_OkButtonClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

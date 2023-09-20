@@ -1,0 +1,185 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AppShell.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="AppShell.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FubarCoder.RestSharp.Portable" Version="3.3.0" />
+    <PackageReference Include="Microsoft.AppCenter" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.2" />
+    <PackageReference Include="MR.Gestures" Version="3.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+    <PackageReference Include="SQLite" Version="3.13.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+	<PackageReference Include="Syncfusion.Licensing" Version="21.2.8" />
+	<PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="21.2.8" />
+	<PackageReference Include="Syncfusion.Xamarin.SfNumericUpDown" Version="21.2.8" />
+	<PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="21.2.8" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
+    <PackageReference Include="Xam.Plugin.DeviceInfo" Version="4.1.1" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
+    <PackageReference Include="Xam.Plugin.Media" Version="6.0.2" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />  
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2578" />  
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Telerik.Documents.SpreadsheetStreaming">
+      <HintPath>..\..\Telerik\Portable\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Barcode">
+      <HintPath>..\..\Telerik\Portable\Telerik.XamarinForms.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Chart">
+      <HintPath>..\..\Telerik\Portable\Telerik.XamarinForms.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common">
+      <HintPath>..\..\Telerik\Portable\Telerik.XamarinForms.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ConversationalUI">
+      <HintPath>..\..\Telerik\Portable\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataControls">
+      <HintPath>..\..\Telerik\Portable\Telerik.XamarinForms.DataControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataGrid">
+      <HintPath>..\..\Telerik\Portable\Telerik.XamarinForms.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataVisualization">
+      <HintPath>..\..\Telerik\Portable\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Input">
+      <HintPath>..\..\Telerik\Portable\Telerik.XamarinForms.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Primitives">
+      <HintPath>..\..\Telerik\Portable\Telerik.XamarinForms.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.SkiaSharp">
+      <HintPath>..\..\Telerik\Portable\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Zip">
+      <HintPath>..\..\Telerik\Portable\Telerik.Zip.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resx\AppResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ChatView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ContentViewsBottoneSabicom\BottoneSabicom.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CONTENTVIEW\BenzinaioCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CONTENTVIEW\ClientiCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CONTENTVIEW\DocumentoCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CONTENTVIEW\GlobalStyle1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CONTENTVIEW\ProdottiCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CONTENTVIEW\ProvincialCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CONTENTVIEW\StatoCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LoadingIndicatorPage1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resx\AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SabicomChatMain.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SabicomChatView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="TelerikChatView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Benzinai.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ChatBotLoadIndicator.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Clienti.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DettaglioCliente.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DettaglioClienteAltriDati.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Documenti.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ImageZoomer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MenuSelf.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\NuovoDocumento.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\NuovoDocumentoAltriDati.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Province.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SceltaProdotti.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Stati.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TestSincronizzazione.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Zoom\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+</Project>

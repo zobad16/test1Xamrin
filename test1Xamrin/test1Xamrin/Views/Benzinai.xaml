@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test1Xamrin.Benzinai"
+             xmlns:local="clr-namespace:test1Xamrin"
+             xmlns:sys2="clr-namespace:xUtilityPCL"
+             xmlns:i18n="clr-namespace:test1Xamrin"
+             Background="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <sys2:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnPulisci" Text="Pulisci" Command="{Binding cmdPulisci}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" 
+            BackgroundColor="{StaticResource NavigationBarBackgroundColor}" Padding="2,2,2,2">
+            <StackLayout HeightRequest="40" >
+                <SearchBar x:Name="searchBarBenzinai" SearchCommand="{Binding cmdSearchBar}" 
+                    Placeholder="{i18n:Translate SearchbarClientiPlaceholder}" 
+                    HeightRequest="40" BackgroundColor="White"
+                    SearchCommandParameter="{Binding Source={x:Reference searchBarBenzinai}, Path=Text}" >
+                    <SearchBar.Behaviors>
+                        <sys2:TextChangedBehavior />
+                    </SearchBar.Behaviors>
+                </SearchBar>
+            </StackLayout>
+            <ListView x:Name="listView" SeparatorVisibility="Default" 
+                BackgroundColor="White" SeparatorColor="#DFDFDF" HasUnevenRows="true" 
+                ItemsSource="{Binding myBenzinaiItemsWrapper.BenzinaiItems}" >
+                <ListView.Behaviors>
+                    <sys2:EventToCommandBehavior EventName="ItemSelected" Command="{Binding cmdBenzinai}" 
+                        Converter="{StaticResource SelectedItemConverter}" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <local:BenzinaioCell />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

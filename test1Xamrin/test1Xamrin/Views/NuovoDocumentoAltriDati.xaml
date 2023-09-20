@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test1Xamrin.NuovoDocumentoAltriDati"
+             xmlns:local="clr-namespace:test1Xamrin"
+             xmlns:sys2="clr-namespace:xUtilityPCL"
+             xmlns:i18n="clr-namespace:test1Xamrin"
+             BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <sys2:EmptyStringConverter x:Key="myEmptyStringConverter" />
+            <OnPlatform x:Key="MargineLabelQRScontrino" x:TypeArguments="Thickness" iOS="5,35,0,0" Android="0,35,0,0" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView VerticalOptions="StartAndExpand">
+                <StackLayout Padding="10">
+                    <Grid RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource FormGridLabelColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                        </Grid.RowDefinitions>
+                        <!--riga 1-->
+                        <Label Grid.Row="0" Grid.Column="0" x:Name="lblReceiptPointOfSale" Margin="0,5,0,0"
+                               VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                               FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                               Text="{i18n:Translate FormNuovoDocLblPuntoVenditaScontrino}" />
+                        <sys2:CustomEntry Grid.Row="0" Grid.Column="1" x:Name="txtReceiptPointOfSale" Margin="0,5,0,0"
+                                          FontSize="{StaticResource StandardLabelFontSize}" HorizontalOptions="FillAndExpand" 
+                                          VerticalOptions="Center" IsLineEntry="true" TextChanged="txtReceiptPointOfSale_TextChanged"
+                                          Text="{Binding drTestata.ReceiptPointOfSale, Converter={StaticResource myEmptyStringConverter}}"
+                                          WidthRequest="{StaticResource GeneralEntryWidth}"
+                                          LineEntryColor="{StaticResource NavigationBarBackgroundColor}" />
+
+                        <!--riga 2-->
+                        <Label Grid.Row="1" Grid.Column="0" x:Name="lblReceiptTerminalNumber" Margin="0,5,0,0"
+                               VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                               FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap"
+                               Text="{i18n:Translate FormNuovoDocLblTerminaleScontrino}" />
+                        <sys2:CustomEntry Grid.Row="1" Grid.Column="1" x:Name="txtReceiptTerminalNumber" Margin="0,5,0,0"
+                                          FontSize="{StaticResource StandardLabelFontSize}" HorizontalOptions="FillAndExpand"
+                                          VerticalOptions="Center" IsLineEntry="true" TextChanged="txtReceiptTerminalNumber_TextChanged"
+                                          Text="{Binding drTestata.ReceiptTerminalNumber, Converter={StaticResource myEmptyStringConverter}}"
+                                          WidthRequest="{StaticResource GeneralEntryWidth}"
+                                          LineEntryColor="{StaticResource NavigationBarBackgroundColor}" />
+
+                        <!--riga 3-->
+                        <Label Grid.Row="2" Grid.Column="0" x:Name="lblReceiptPumpNumber" Margin="0,5,0,0"
+                               VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                               FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                               Text="{i18n:Translate FormNuovoDocLblPompaScontrino}" />
+                        <sys2:CustomEntry Grid.Row="2" Grid.Column="1" x:Name="txtReceiptPumpNumber" Margin="0,5,0,0"
+                                          FontSize="{StaticResource StandardLabelFontSize}" HorizontalOptions="FillAndExpand" 
+                                          VerticalOptions="Center" IsLineEntry="true" TextChanged="txtReceiptPumpNumber_TextChanged"
+                                          Text="{Binding drTestata.ReceiptPumpNumber, Converter={StaticResource myEmptyStringConverter}}"
+                                          WidthRequest="{StaticResource GeneralEntryWidth}"
+                                          LineEntryColor="{StaticResource NavigationBarBackgroundColor}" />
+
+                        <!--riga 4-->
+                        <Label Grid.Row="3" Grid.Column="0" x:Name="lblReceiptPicture2" Margin="0,10,0,0"
+                               VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                               FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                               Text="{i18n:Translate FormNuovoDocLblFoto2Scontrino}" />
+                        <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,10,0,0">
+                            <StackLayout VerticalOptions="Center" Margin="0,0,15,0">
+                                <Image x:Name="imgFoto2Scontrino" Source="CameraIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Foto2Scontrino_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Center" Margin="0,0,15,0">
+                                <Image x:Name="imgVediFoto2Scontrino" Source="ViewPhotoIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="VediFoto2Scontrino_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                <Image x:Name="imgCancellaFoto2Scontrino" Source="ClearIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="CancellaFoto2Scontrino_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <!--riga 5-->
+                        <Label Grid.Row="4" Grid.Column="0" x:Name="lblReceiptPicture3" Margin="0,10,0,0"
+                               VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                               FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                               Text="{i18n:Translate FormNuovoDocLblFoto3Scontrino}" />
+                        <StackLayout Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,10,0,0">
+                            <StackLayout VerticalOptions="Center" Margin="0,0,15,0">
+                                <Image x:Name="imgFoto3Scontrino" Source="CameraIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Foto3Scontrino_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Center" Margin="0,0,15,0">
+                                <Image x:Name="imgVediFoto3Scontrino" Source="ViewPhotoIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="VediFoto3Scontrino_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                <Image x:Name="imgCancellaFoto3Scontrino" Source="ClearIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="CancellaFoto3Scontrino_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <!--riga 6-->
+                        <Label Grid.Row="5" Grid.Column="0" x:Name="lblReceiptQR" Margin="0,10,0,0"
+                               VerticalOptions="Start" 
+                               FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                               Text="{i18n:Translate FormNuovoDocLblQRScontrino}" />
+                        <StackLayout Grid.Row="5" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,10,0,0">
+                            <StackLayout VerticalOptions="Start" Margin="0,0,15,0">
+                                <Image x:Name="imgQRScontrino" Source="QRIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="QRScontrino_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="End" VerticalOptions="Start">
+                                <Image x:Name="imgCancellaQRScontrino" Source="ClearIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="CancellaQRScontrino_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <!--riga 7-->
+                        <sys2:CustomEntry Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" x:Name="txtReceiptQR" 
+                                          Margin="{StaticResource MargineLabelQRScontrino}"
+                                          FontSize="{StaticResource StandardLabelFontSize}" HorizontalOptions="FillAndExpand" 
+                                          VerticalOptions="Center" IsLineEntry="true" IsEnabled="false"
+                                          Text="{Binding drTestata.ReceiptQR}"
+                                          WidthRequest="{StaticResource GeneralEntryWidth}"
+                                          LineEntryColor="{StaticResource NavigationBarBackgroundColor}" />
+
+                        <!--riga 8-->
+                        <Label Grid.Row="7" Grid.Column="0" x:Name="lblReceiptNote" Margin="0,5,0,0"
+                               VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                               FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap" 
+                               Text="{i18n:Translate FormNuovoDocLblNoteScontrino}" />
+
+                        <!--riga 9-->
+                        <StackLayout Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,0" Padding="1,1,1,1"
+                                     BackgroundColor="{StaticResource NavigationBarBackgroundColor}">
+                            <Editor x:Name="txtReceiptNote" HeightRequest="80" BackgroundColor="White"
+                                    FontSize="{StaticResource StandardLabelFontSize}" HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="Center" Text="{Binding drTestata.ReceiptNote, Converter={StaticResource myEmptyStringConverter}}"
+                                    WidthRequest="{StaticResource GeneralEntryWidth}" />
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

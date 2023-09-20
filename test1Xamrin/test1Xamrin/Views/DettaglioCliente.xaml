@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test1Xamrin.DettaglioCliente"
+             xmlns:local="clr-namespace:test1Xamrin"
+             xmlns:sys2="clr-namespace:xUtilityPCL"
+             xmlns:i18n="clr-namespace:test1Xamrin"
+             x:DataType="local:FEC_CustomersSystem"
+             BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <sys2:FirstValidationErrorConverter x:Key="FirstValidationErrorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView VerticalOptions="StartAndExpand">
+                <StackLayout Padding="10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{StaticResource FormGridLabelColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="AUTO" />
+                        </Grid.RowDefinitions>
+                        <!--riga 1-->
+                        <Label Grid.Column="0" Grid.Row="0" x:Name="lblTaxIDNumber" LineBreakMode="WordWrap" VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" Text="{i18n:Translate FormDettClienteLblPIVA}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtTaxIDNumber" LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding TaxIDNumber_VAL.Value, Mode=TwoWay}">
+                                    <sys2:CustomEntry.Behaviors>
+                                        <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateTaxIDNumberCommand}" />
+                                    </sys2:CustomEntry.Behaviors>
+                                    <sys2:CustomEntry.Triggers>
+                                        <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding TaxIDNumber_VAL.IsValid}" Value="False">
+                                            <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                        </DataTrigger>
+                                    </sys2:CustomEntry.Triggers>
+                                </sys2:CustomEntry>
+                                <Label Text="{Binding TaxIDNumber_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding TaxIDNumber_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="End">
+                                <Image x:Name="imgValidaTaxIDNumber" Source="WebIcon.png" Aspect="AspectFit" HeightRequest="25" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ValidaTaxIDNumber_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--riga 2-->
+                        <Label Grid.Column="0" Grid.Row="1" x:Name="lblSID" LineBreakMode="WordWrap" VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" Text="{i18n:Translate FormDettClienteLblSID}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Vertical">
+                            <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtSID" LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding SID_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateSIDCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding SID_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding SID_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding SID_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 3-->
+                        <Label Grid.Column="0" Grid.Row="2" x:Name="lblPec" LineBreakMode="WordWrap" VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" Text="{i18n:Translate FormDettClienteLblPec}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="2" Orientation="Vertical">
+                            <sys2:CustomEntry TextChanged="txtPec_TextChanged" FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtPec" LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding Pec_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidatePecCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding Pec_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding Pec_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding Pec_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 4-->
+                        <Label Grid.Column="0" Grid.Row="3" x:Name="lblCompanyName" LineBreakMode="WordWrap" VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" Text="{i18n:Translate FormDettClienteLblRagioneSociale}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="3" Orientation="Vertical">
+                            <sys2:CustomEntry TextChanged="txtCompanyName_TextChanged" FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtCompanyName" LineEntryColor="{StaticResource MainAppColor}" IsLineEntry="true" HorizontalOptions="FillAndExpand" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding CompanyName_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateCompanyNameCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding CompanyName_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding CompanyName_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding CompanyName_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 5-->
+                        <Label Grid.Column="0" Grid.Row="4" x:Name="lblAddress" LineBreakMode="WordWrap" VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" Text="{i18n:Translate FormDettClienteLblIndirizzo}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="4" Orientation="Vertical">
+                            <sys2:CustomEntry TextChanged="txtAddress_TextChanged" FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtAddress" LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding Address_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateAddressCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding Address_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding Address_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding Address_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 6-->
+                        <Label Grid.Column="0" Grid.Row="5" x:Name="lblTelephone" LineBreakMode="WordWrap" VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" Text="{i18n:Translate FormDettClienteLblTelefono}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="5" Orientation="Vertical">
+                            <sys2:CustomEntry TextChanged="txtTelephone_TextChanged" FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtTelephone" LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding Telephone_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateTelephoneCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding Telephone_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding Telephone_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding Telephone_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 7-->
+                        <Label Grid.Column="0" Grid.Row="6" x:Name="lblCity" LineBreakMode="WordWrap" VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" Text="{i18n:Translate FormDettClienteLblComune}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="6" Orientation="Vertical">
+                            <sys2:CustomEntry TextChanged="txtCity_TextChanged" FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtCity" LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding City_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateCityCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding City_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding City_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding City_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 8-->
+                        <Label Grid.Column="0" Grid.Row="7" x:Name="lblZipCode" LineBreakMode="WordWrap" VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" Text="{i18n:Translate FormDettClienteLblCAP}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="7" Orientation="Vertical">
+                            <sys2:CustomEntry TextChanged="txtZipCode_TextChanged" FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtZipCode" LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding ZipCode_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateZipCodeCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding ZipCode_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding ZipCode_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding ZipCode_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 9-->
+                        <!--20180809<Label Grid.Column="0" Grid.Row="8" x:Name="lblCounty" LineBreakMode="WordWrap" 
+                               VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" 
+                               Text="{i18n:Translate FormDettClienteLblProvincia}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="8" Orientation="Vertical">
+                            <sys2:CustomEntry TextChanged="txtCounty_TextChanged" FontSize="{StaticResource StandardLabelFontSize}" 
+                                              x:Name="txtCounty" LineEntryColor="{StaticResource MainAppColor}" 
+                                              HorizontalOptions="FillAndExpand" IsLineEntry="true" 
+                                              WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                              Text="{Binding County_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateCountyCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding County_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding County_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}" 
+                                   IsVisible="{Binding County_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>-->
+                        <!--riga 10-->
+                        <Label Grid.Column="0" Grid.Row="9" x:Name="lblCounty2" LineBreakMode="WordWrap" 
+                               VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" 
+                               Text="{i18n:Translate FormDettClienteLblProvincia}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="9" Orientation="Horizontal">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" IsEnabled="false"
+                                                 x:Name="txtCounty2" LineEntryColor="{StaticResource MainAppColor}" 
+                                                 HorizontalOptions="FillAndExpand" IsLineEntry="true" 
+                                                 WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                                 Text="{Binding County2_VAL.Value, Mode=TwoWay}">
+                                    <!--<sys2:CustomEntry.Behaviors>
+                                        <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateCountyCommand}" />
+                                    </sys2:CustomEntry.Behaviors>-->
+                                    <sys2:CustomEntry.Triggers>
+                                        <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding County2_VAL.IsValid}" Value="False">
+                                            <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                        </DataTrigger>
+                                    </sys2:CustomEntry.Triggers>
+                                </sys2:CustomEntry>
+                                <Label Text="{Binding County2_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" 
+                                    IsVisible="{Binding County2_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                <Image x:Name="imgMoreProv" Source="MoreIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="County_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--riga 11-->
+                        <Label Grid.Column="0" Grid.Row="10" x:Name="lblCountry" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" 
+                            Text="{i18n:Translate FormDettClienteLblStato}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="10" Orientation="Vertical">
+                            <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" IsEnabled="false"
+                                x:Name="txtCountry" LineEntryColor="{StaticResource MainAppColor}" 
+                                HorizontalOptions="FillAndExpand" IsLineEntry="true" 
+                                WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                Text="{Binding Country_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" 
+                                        Command="{Binding ValidateCountryCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" 
+                                        Binding="{Binding Country_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding Country_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" 
+                                IsVisible="{Binding Country_VAL.IsInError}" 
+                                Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 12-->
+                        <!--20180809<Label Grid.Column="0" Grid.Row="11" x:Name="lblStateCode" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" 
+                            Text="{i18n:Translate FormDettClienteLblCodiceStato}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="11" Orientation="Vertical">
+                            <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtStateCode" 
+                                              LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" 
+                                              IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                              Text="{Binding StateCode_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateStateCodeCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" 
+                                                 Binding="{Binding StateCode_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding StateCode_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}"
+                                   IsVisible="{Binding StateCode_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>-->
+                        <!--riga 13-->
+                        <Label Grid.Column="0" Grid.Row="12" x:Name="lblStateCode2" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" 
+                            Text="{i18n:Translate FormDettClienteLblCodiceStato}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="12" Orientation="Horizontal">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" >
+                                <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtStateCode2" IsEnabled="false"
+                                                  LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" 
+                                                  IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                                  Text="{Binding StateCode2_VAL.Value, Mode=TwoWay}">
+                                    <!--<sys2:CustomEntry.Behaviors>
+                                        <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateStateCodeCommand}" />
+                                    </sys2:CustomEntry.Behaviors>-->
+                                    <sys2:CustomEntry.Triggers>
+                                        <DataTrigger TargetType="{x:Type sys2:CustomEntry}" 
+                                                     Binding="{Binding StateCode2_VAL.IsValid}" Value="False">
+                                            <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                        </DataTrigger>
+                                    </sys2:CustomEntry.Triggers>
+                                </sys2:CustomEntry>
+                                <Label Text="{Binding StateCode2_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                                       IsVisible="{Binding StateCode2_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                <Image x:Name="imgMoreStateCode" Source="MoreIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="StateCode_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--riga 14-->
+                        <Label Grid.Column="0" Grid.Row="13" x:Name="lblFiscalCode" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" 
+                            Text="{i18n:Translate FormDettClienteLblCodFisc}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="13" Orientation="Vertical">
+                            <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" 
+                                x:Name="txtFiscalCode" LineEntryColor="{StaticResource MainAppColor}" 
+                                HorizontalOptions="FillAndExpand" IsLineEntry="true" 
+                                WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                TextChanged="txtFiscalCode_TextChanged"
+                                Text="{Binding FiscalCode_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" 
+                                        Command="{Binding ValidateFiscalCodeCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" 
+                                        Binding="{Binding FiscalCode_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding FiscalCode_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding FiscalCode_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 15-->
+                        <Label Grid.Column="0" Grid.Row="14" x:Name="lblEmail" LineBreakMode="WordWrap" VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" Text="{i18n:Translate FormDettClienteLblEmail}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="14" Orientation="Vertical">
+                            <sys2:CustomEntry TextChanged="txtEmail_TextChanged" FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtEmail" LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding Email_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateEmailCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding Email_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding Email_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding Email_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 16-->
+                        <Label Grid.Column="0" Grid.Row="15" x:Name="lblContactName" LineBreakMode="WordWrap" VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" Text="{i18n:Translate FormDettClienteLblNomeContatto}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="15" Orientation="Vertical">
+                            <sys2:CustomEntry TextChanged="txtContactName_TextChanged" FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtContactName" LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding ContactName_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateContactNameCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding ContactName_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding ContactName_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding ContactName_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 17-->
+                        <Label Grid.Column="0" Grid.Row="16" x:Name="lblContactTelephone" LineBreakMode="WordWrap" VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" Text="{i18n:Translate FormDettClienteLblTelefonoContatto}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="16" Orientation="Vertical">
+                            <sys2:CustomEntry TextChanged="txtContactTelephone_TextChanged" FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtContactTelephone" LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding ContactTelephone_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateContactTelephoneCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding ContactTelephone_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding ContactTelephone_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding ContactTelephone_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 18-->
+                        <Label Grid.Column="0" Grid.Row="17" x:Name="lblContactEmail" LineBreakMode="WordWrap" VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" Text="{i18n:Translate FormDettClienteLblEmailContatto}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="17" Orientation="Vertical">
+                            <sys2:CustomEntry TextChanged="txtContactEmail_TextChanged" FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtContactEmail" LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding ContactEmail_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateContactEmailCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding ContactEmail_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding ContactEmail_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding ContactEmail_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 19-->
+                        <Label Grid.Column="0" Grid.Row="18" x:Name="lblPA" LineBreakMode="WordWrap" 
+                               FontSize="{StaticResource StandardLabelFontSize}" VerticalOptions="Center" 
+                               Text="{i18n:Translate FormDettClienteLblPA}" />
+                        <Switch VerticalOptions="End" Grid.Column="1" Grid.Row="18" x:Name="swPA" 
+                                IsToggled="{Binding PA}" Toggled="Handle_Toggled" />
+                        <!--riga 20-->
+                        <Label Grid.Column="0" Grid.Row="19" x:Name="lblCIG" LineBreakMode="WordWrap" VerticalOptions="{StaticResource LabelVerticalPosition}" FontSize="{StaticResource StandardLabelFontSize}" Text="{i18n:Translate FormDettClienteLblCIG}" Margin="0,0,5,2" />
+                        <StackLayout x:Name="stackCIG" Grid.Column="1" Grid.Row="19" Orientation="Vertical">
+                            <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtCIG" LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding CIG_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateCIGCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding CIG_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding CIG_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding CIG_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 21-->
+                        <Label Grid.Column="0" Grid.Row="20" x:Name="lblCUP" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}" 
+                            Text="{i18n:Translate FormDettClienteLblCUP}" Margin="0,0,5,2" />
+                        <StackLayout x:Name="stackCUP" Grid.Column="1" Grid.Row="20" Orientation="Vertical">
+                            <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}" x:Name="txtCUP" LineEntryColor="{StaticResource MainAppColor}" HorizontalOptions="FillAndExpand" IsLineEntry="true" WidthRequest="{StaticResource GeneralEntryWidth}" Text="{Binding CUP_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateCUPCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" Binding="{Binding CUP_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding CUP_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}}" IsVisible="{Binding CUP_VAL.IsInError}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                        <!--riga 22-->
+                        <!--<Label Grid.Column="0" Grid.Row="21" x:Name="lblTaxCodeDefault" LineBreakMode="WordWrap" 
+                            VerticalOptions="{StaticResource LabelVerticalPosition}" 
+                            FontSize="{StaticResource StandardLabelFontSize}"
+                            Text="{i18n:Translate FormDettClienteLblTipoAliquota}" Margin="0,0,5,2" />
+                        <StackLayout Grid.Column="1" Grid.Row="21" Orientation="Vertical">
+                            <sys2:CustomEntry FontSize="{StaticResource StandardLabelFontSize}"
+                                x:Name="txtTaxCodeDefault" LineEntryColor="{StaticResource MainAppColor}"
+                                HorizontalOptions="FillAndExpand" IsLineEntry="true" 
+                                WidthRequest="{StaticResource GeneralEntryWidth}" 
+                                Text="{Binding TaxCodeDefault_VAL.Value, Mode=TwoWay}">
+                                <sys2:CustomEntry.Behaviors>
+                                    <sys2:EventToCommandBehavior EventName="TextChanged" 
+                                        Command="{Binding ValidateTaxCodeDefaultCommand}" />
+                                </sys2:CustomEntry.Behaviors>
+                                <sys2:CustomEntry.Triggers>
+                                    <DataTrigger TargetType="{x:Type sys2:CustomEntry}" 
+                                        Binding="{Binding TaxCodeDefault_VAL.IsValid}" Value="False">
+                                        <Setter Property="LineEntryColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </sys2:CustomEntry.Triggers>
+                            </sys2:CustomEntry>
+                            <Label Text="{Binding TaxCodeDefault_VAL.Errors, Converter={StaticResource FirstValidationErrorConverter}" 
+                                Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>-->
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="10,5,10,5">
+                <Label VerticalOptions="Center" HorizontalOptions="FillAndExpand"
+                    FontSize="{StaticResource StandardLabelFontSize}" 
+                    Text="{i18n:Translate FormDettClienteLabelAltriDati}" />
+                <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                    <Image x:Name="imgMoreAltriDati" Source="MoreIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AltriDati_Tapped" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+
+            <!--<StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="10,5,10,5">
+                <Label VerticalOptions="Center" HorizontalOptions="FillAndExpand"
+                    FontSize="{StaticResource StandardLabelFontSize}" 
+                    Text="{i18n:Translate FormDettClienteLabelArticoliIVA}" />
+                <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                    <Image x:Name="imgMoreArticoliIVA" Source="MoreIcon.png" Aspect="AspectFit" HeightRequest="30" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ArticoliIVA_Tapped" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>-->
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
+                <Button x:Name="btnSalva" BorderRadius="0" Text="{i18n:Translate TestoBtnSalva}" 
+                    Margin="20,10,20,20" VerticalOptions="End" Style="{StaticResource SmallButtonStyle}" 
+                    BackgroundColor="{StaticResource MainAppColor}" Command="{Binding cmdbtnSalva}" />
+                <Button x:Name="btnAnnulla" BorderRadius="0" Text="{i18n:Translate TestoBtnAnnulla}" 
+                    Margin="0,10,20,20" VerticalOptions="End" Style="{StaticResource SmallButtonStyle}" 
+                    BackgroundColor="{StaticResource MainAppColor}" Command="{Binding cmdbtnAnnulla}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

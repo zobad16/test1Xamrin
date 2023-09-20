@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test1Xamrin.ProdottiCell"
+             xmlns:sys2="clr-namespace:xUtilityPCL"
+             xmlns:i18n="clr-namespace:test1Xamrin">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <sys2:NumericConverter x:Key="myNumericConverter" />
+            <sys2:StringToColorConverter x:Key="stringToColorConverter" />
+            <!--<OnIdiom x:Key="FirstColumnWidth" x:TypeArguments="GridLength" Phone="120" Tablet="192" />
+            <OnIdiom x:Key="SecondColumnWidth" x:TypeArguments="GridLength" Phone="85" Tablet="136" />
+            <OnIdiom x:Key="ThirdColumnWidth" x:TypeArguments="GridLength" Phone="85" Tablet="136" />-->
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <StackLayout Spacing="0" Padding="10">
+            <Grid Padding="0">
+                <Grid.ColumnDefinitions>
+                    <!--<ColumnDefinition Width="{StaticResource FirstColumnWidth}" />
+                    <ColumnDefinition Width="{StaticResource SecondColumnWidth}" />
+                    <ColumnDefinition Width="{StaticResource ThirdColumnWidth}" />-->
+                    <!--<ColumnDefinition Width="1.6*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />-->
+                    <ColumnDefinition Width="44*" />
+                    <ColumnDefinition Width="35*" />
+                    <ColumnDefinition Width="21*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO" />
+                </Grid.RowDefinitions>
+                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                    <Label VerticalOptions="Center" HeightRequest="30" WidthRequest="30" 
+                        BackgroundColor="{Binding ItemColor, Converter={StaticResource stringToColorConverter}}" />
+                    <Label FontSize="{StaticResource StandardLabelFontSize}" LineBreakMode="WordWrap"
+                        VerticalOptions="Center" Text="{Binding ItemDescription}" />
+                    <!--<Label FontSize="{StaticResource StandardLabelFontSize}" 
+                        VerticalOptions="Center" Text="-" />-->
+                </StackLayout>
+                <StackLayout Grid.Row="0" Grid.Column="1" x:Name="slSelf" 
+                    HorizontalOptions="Start" VerticalOptions="Center" Orientation="Vertical" Padding="1" 
+                    BackgroundColor="{StaticResource NavigationBarBackgroundColor}" >
+                    <StackLayout BackgroundColor="White" Padding="10,5,10,5">
+                        <Label x:Name="lbl1" HorizontalOptions="Center" VerticalOptions="Center"
+                            FontSize="{StaticResource StandardLabelFontSize}"  
+                            Text="{i18n:Translate FormPrezziLblSelfService}"/>
+                        <Label FontSize="{StaticResource StandardLabelFontSize}" 
+                            VerticalOptions="Center" HorizontalOptions="Center"
+                            Text="{Binding UnitPriceB, StringFormat = '{0:C3}'}" />
+                        <!--<StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=ParentBindingContext.cmdSceltaPrezzoSelf ,Source={x:Reference myProdottiCell}  }" 
+                                CommandParameter="{Binding .}" />
+                        </StackLayout.GestureRecognizers>-->
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+            <!--<StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Handle_Tapped" />
+            </StackLayout.GestureRecognizers>-->
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
